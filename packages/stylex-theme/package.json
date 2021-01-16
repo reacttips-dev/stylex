@@ -1,0 +1,21 @@
+{
+  "name": "@ladifire-opensource/stylex-theme",
+  "version": "0.0.1-beta1",
+  "description": "Use CSS in JS with atomic support",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/main.js",
+  "module": "dist/main.module.js",
+  "types": "index.d.ts",
+  "source": "index.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ladifire-opensource/stylex"
+  }
+}

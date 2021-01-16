@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/template": "^7.10.4",
+    "@babel/types": "^7.8.3",
+    "chalk": "^3.0.0",
+    "known-css-properties": "^0.20.0",
+    "postcss": "^7.0.32",
+    "postcss-discard-duplicates": "^4.0.2",
+    "postcss-selector-parser": "^6.0.2",
+    "sort-css-media-queries": "^1.5.2"
+  },
+  "devEngines": {
+    "node": "8.x || 9.x || 10.x || 11.x || 12.x || 13.x || 14.x || 15.x"
+  },
+  "scripts": {},
+  "dependencies": {
+    "eslint-plugin-rulesdir": "^0.1.0"
+  }
+}
