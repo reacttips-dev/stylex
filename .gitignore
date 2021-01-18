@@ -3,6 +3,8 @@ node_modules
 *~
 __benchmarks__
 build/
+dist/
+packages/*/*/dist
 .module-cache
 *.log*
 chrome-user-data
@@ -13,3 +15,4 @@ chrome-user-data
 .vscode
 *.swp
 *.swo
+.parcel-cache
