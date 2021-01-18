@@ -56,3 +56,20 @@ This method will dedupe (override) duplicate style properties:
 
 ### Compose (merge) stylex objects ```(stylex.compose)```
 
+## Themes
+
+## Stylex setups
+
+### Webpack
+
+#### Inject css to compiled js
+
+#### Separate css into .css files
+
+### babel
+
+### SSR
+
+## Typescript support
+
+
