@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+const chalk = require("chalk");
+
 const stylesUtils = require("../utils").styles;
 const classNames = require("../utils").classNames;
 const filterObject = require("../utils").filterObject;
@@ -16,34 +18,33 @@ module.exports = function handleCreateBindings(identifier, opts, path) {
   const callExpr = identifier.parentPath.parentPath;
   const objExpr = callExpr.get('arguments.0');
 
-  let styles = stylesUtils.getStyles(objExpr);
-  let classes = classNames.getClasses(styles);
+  let styles;
+  let classes;
 
-  const usedProperties = replaceUseCalls(callExpr.parentPath, classes);
-  styles = filterObject(styles, usedProperties);
-  classes = filterObject(classes, usedProperties);
+  try {
+    styles = stylesUtils.getStyles(objExpr);
+    classes = classNames.getClasses(styles);
 
-  console.log("classes===", classes);
+    const usedProperties = replaceUseCalls(callExpr.parentPath, classes);
+    styles = filterObject(styles, usedProperties);
+    classes = filterObject(classes, usedProperties);
+  } catch (e) {
+    console.log(chalk.red(`\nAn error occur: ${e}`));
+  }
+
+  if (!classes) {
+    return "";
+  }
 
   replaceDeclaration(callExpr, classes);
-  const stylesString = stylesUtils.generateStyles(styles);
-  if (opts && opts.inject) {
-    injectStyles(stylesString, path);
-  }
-  return stylesString
+  const cssString = stylesUtils.generateStyles(styles);
 
-  //
-  // if (opts.minifyProperties) {
-  //   const minifiedClasses = Object.fromEntries(
-  //     Object.entries(classes)
-  //       .map(([key, value]) => [key, minifyProperties(value)])
-  //   );
-  //   replaceDeclaration(callExpr, minifiedClasses);
-  // } else {
-  //   replaceDeclaration(callExpr, classes);
-  // }
-  //
-  // const _styles = generateStyles(styles);
-  // injectStyles(_styles, path);
-  // return _styles
+  // only inject this to js, if there's an option {inject: true}
+  console.log("opts", opts, cssString);
+  if (opts && opts.inject) {
+    injectStyles(cssString, path);
+  }
+
+  // always return cssString to stream
+  return cssString
 };

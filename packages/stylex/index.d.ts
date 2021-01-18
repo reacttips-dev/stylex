@@ -24,4 +24,14 @@ declare namespace stylex {
       | { [key in keyof T]?: boolean | undefined | null }
       )[]) => string
     );
+
+  // dedupe
+
+  // compose
+
+  // keyframes
+
+  // inject
+
+  // delete
 }

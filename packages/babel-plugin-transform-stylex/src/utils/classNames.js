@@ -5,10 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+const cssProperties = require('known-css-properties').all;
+
 const normalizePseudoElements = require("./normalizePseudoElements");
 const getClassHash = require("./getClassHash");
 const isNestedObjects = require("./isNestedObjects");
 const flattenStyles = require("./flattenStyles");
+const camelToHyphen = require("./camelToHyphen");
 
 function getClass(...args) {
   return getClassHash(JSON.stringify(args));
@@ -70,9 +73,19 @@ function flattenClasses(classes) {
   );
 }
 
+function minifyProperty(name) {
+  const hyphenName = camelToHyphen(name);
+  if (cssProperties.includes(hyphenName)) {
+    return cssProperties.indexOf(hyphenName).toString(36);
+  }
+
+  return getClassHash(hyphenName);
+}
+
 module.exports = {
   getClass,
   getClasses,
   getClassesForDedupe,
   flattenClasses,
+  minifyProperty,
 };

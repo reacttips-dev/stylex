@@ -25,13 +25,9 @@ class StylexPlugin {
     compiler.hooks.compilation.tap(NAME, (compilation, callback) => {
       compilation.hooks.optimizeChunkAssets.tapPromise(NAME, async chunks => {
 
-        console.log("chunkschunkschunks", chunks);
-
         const transforms = flatMap(chunks, (chunk) => {
           return chunk.files.filter(path => path.match(this.test));
         });
-
-        console.log("transformstransformstransforms", transforms);
 
         if (transforms && transforms.length > 0) {
           for (const path of transforms) {

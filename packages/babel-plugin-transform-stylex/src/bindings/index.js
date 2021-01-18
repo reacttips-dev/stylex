@@ -9,6 +9,8 @@ const {
   isPropertyCall,
 } = require("../utils");
 const handleCreateBindings = require("./handleCreateBindings");
+const handleDedupeBindings = require("./handleDedupeBindings");
+const handleKeyframesBindings = require("./handleKeyframesBindings");
 
 require("../utils/pollyfils.js");
 
@@ -17,6 +19,14 @@ function handleBinding(node, opts, path) {
 
   if (isPropertyCall(node, 'create')) {
     return handleCreateBindings(node, opts, path);
+  }
+
+  if (isPropertyCall(node, 'dedupe')) {
+    return handleDedupeBindings(node, opts, path);
+  }
+
+  if (isPropertyCall(node, 'keyframes')) {
+    return handleKeyframesBindings(node);
   }
 
   return ".aaa{color: red;}"

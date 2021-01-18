@@ -35,15 +35,18 @@ function getStyles(binding) {
   return expandProperties(resolvePathValue(binding));
 }
 
-
-
 function generateStyles(styles) {
   return Object.values(styles)
     .flatMap(props => flattenStyles(props).map(getDeclaration));
+}
+
+function generateStylesForDedupe(styles) {
+  return flattenStyles(styles).map(getDeclaration);
 }
 
 module.exports = {
   expandProperties,
   getStyles,
   generateStyles,
+  generateStylesForDedupe,
 };

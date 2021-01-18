@@ -24,17 +24,11 @@ module.exports = function plugin({inject = true}) {
         const importName = path.node.local.name;
         const bindings = path.scope.bindings[importName].referencePaths;
 
-        const cssResult = handleBindings(bindings, state.opts, root)
+        // inject the result to metadata
+        state.file.metadata.stylex = handleBindings(bindings, state.opts, root)
           // Remove duplicates
           .filter((e, i, a) => a.indexOf(e) === i)
           .join('');
-
-        console.log("cssResult_", cssResult);
-
-        // inject the result to metadata
-        state.file.metadata.stylex = cssResult;
-        console.log("importName", importName);
-        // console.log("bindings", bindings);
       }
     },
   }
