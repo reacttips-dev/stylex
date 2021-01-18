@@ -11,10 +11,12 @@ const loaderUtils = require('loader-utils');
 // const virtualModules = require('./src/virtualModules.js');
 const path = require('path');
 
+const virtualModules = require('./virtualModules');
+
 async function stylexLoader(input, inputSourceMap) {
   const {
     inlineLoader = '',
-    outputCSS = false,
+    outputCSS = true,
     ...options
   } = loaderUtils.getOptions(this) || {};
 
@@ -42,7 +44,7 @@ async function stylexLoader(input, inputSourceMap) {
         }
       );
 
-      // virtualModules.writeModule(cssPath, metadata.stylex);
+      virtualModules.writeModule(cssPath, metadata.stylex);
 
       const postfix = `import '${inlineLoader + cssPath}';`;
       this.callback(null, code + postfix, map);

@@ -263,8 +263,11 @@ let appConfig = {
         exclude: STANDARD_EXCLUDE,
         use: [
           {
-            loader: 'style-loader'
-          }
+            loader: ExtractTextPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+          },
         ]
       },
       {
@@ -331,6 +334,8 @@ let appConfig = {
       COMMIT_HASH: JSON.stringify(childProcess.execSync('git rev-parse HEAD || echo dev').toString()),
     }),
 
+    new StylexPlugin(),
+
     new ExtractTextPlugin({
       filename: '[name].[contentHash:11].css',
       chunkFilename: '[name].[contentHash:11].css',
@@ -354,8 +359,6 @@ let appConfig = {
         SPA_DSN: JSON.stringify(env.SENTRY_SPA_DSN),
       },
     }),
-
-    new StylexPlugin(),
   ],
   resolve: {
     alias: {

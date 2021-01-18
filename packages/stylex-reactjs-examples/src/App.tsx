@@ -9,6 +9,8 @@ import * as React from 'react';
 
 import stylex from '@ladifire-opensource/stylex';
 
+import "./test.css";
+
 type Style =
   | 'root';
 

@@ -7,8 +7,6 @@
 
 const CometStyleXSheet = require("@ladifire-opensource/stylex-theme");
 
-console.log("CometStyleXSheet", CometStyleXSheet);
-
 CometStyleXSheet.rootStyleSheet.injectTheme();
 
 var g = false;
