@@ -47,7 +47,7 @@ class StyleXSheet {
     this.rootDarkTheme = props.rootDarkTheme;
     this.isSlow = (c = props.isSlow) != null ? c : typeof location === "object" && typeof location.search === "string" ? location.search.includes("stylex-slow") : !1;
     this.supportsVariables = (c = props.supportsVariables) != null ? c : l();
-    this._isRTL = false; // b("Locale").isRTL();
+    this._isRTL = false; // TODO: need options RTL for plugin
     this.externalRules = new Set()
   }
 
@@ -61,7 +61,7 @@ class StyleXSheet {
 
   getTag() {
     let a = this.tag;
-    a != null || /*g(0, 11103)*/console.log("xxxxxxxxxxxxxxxxxxxxxx");
+    a != null || console.warn("TODO: ???");
     return a
   }
 
@@ -98,14 +98,14 @@ class StyleXSheet {
 
   delete(a) {
     var b = this.rules.indexOf(a);
-    b >= 0 || /*g(0, 2656, a)*/console.log("xxxxxxxxxxxxxx");
+    b >= 0 || console.warn("TODO: ???");
     this.rules.splice(b, 1);
     if (this.isHeadless()) return;
     a = this.getTag();
     if (this.isSlow) a.removeChild(a.childNodes[b + 1]);
     else {
       a = a.sheet;
-      a || /*g(0, 2657)*/console.log("xxxxxxxxxxxxxx");
+      a || console.warn("TODO: ???");
       a.deleteRule(b)
     }
   }

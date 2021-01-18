@@ -7,6 +7,7 @@
 
 const handleBindings = require("./bindings");
 
+// TODO: get it from package.json
 const NAME = "@ladifire-opensource/stylex";
 
 module.exports = function plugin({inject = true}) {

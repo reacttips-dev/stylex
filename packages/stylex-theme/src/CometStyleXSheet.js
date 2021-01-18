@@ -15,7 +15,6 @@ class _CometStyleXSheet extends StylexSheet {
     this.rootDarkTheme = props.rootDarkTheme || {};
 
     this.injectThemeVariables = function(data, themeKey = "root") {
-      console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", data);
       if (themeKey === "root") {
         this.rootTheme = Object.assign(this.rootTheme, data);
       } else {

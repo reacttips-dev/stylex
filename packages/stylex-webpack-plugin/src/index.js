@@ -10,6 +10,7 @@ const { SourceMapSource, RawSource } = require('webpack-sources');
 const processCSS = require("./processCSS");
 const virtualModules = require('./virtualModules');
 
+// TODO: get it from package.json
 const NAME = "@ladifire-opensource/stylex";
 
 const flatMap = (arr, cb) => arr.flatMap ? arr.flatMap(cb) : [].concat(...arr.map(cb));

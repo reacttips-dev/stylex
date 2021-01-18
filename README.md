@@ -56,7 +56,7 @@ This method will dedupe (override) duplicate style properties:
 
 ### Compose (merge) stylex objects ```(stylex.compose)```
 
-## Themes
+## Theming support
 
 ## Stylex setups
 

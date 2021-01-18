@@ -40,7 +40,6 @@ module.exports = function handleCreateBindings(identifier, opts, path) {
   const cssString = stylesUtils.generateStyles(styles);
 
   // only inject this to js, if there's an option {inject: true}
-  console.log("opts", opts, cssString);
   if (opts && opts.inject) {
     injectStyles(cssString, path);
   }
