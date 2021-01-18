@@ -1,0 +1,11 @@
+{
+  "presets": [
+    "@babel/preset-typescript",
+    ["@parcel/babel-preset-env",
+      {
+        "loose": true
+      }
+    ]
+  ],
+  "sourceType": "unambiguous"
+}

@@ -7,9 +7,22 @@
 
 import * as React from 'react';
 
+import stylex from '@ladifire-opensource/stylex';
+
+type Style =
+  | 'root';
+
+const styles = stylex.create<Style>({
+  root: {
+    color: "blue",
+    padding: 4,
+    backgroundColor: 'red'
+  },
+});
+
 export default () => {
   return (
-    <div>
+    <div className={stylex(styles.root)}>
       Wellcome to Stylex
     </div>
   );

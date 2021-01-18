@@ -6,12 +6,11 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/main.js",
-  "module": "dist/main.module.js",
-  "source": "index.js",
+  "main": "index.js",
   "files": [
     "dist",
-    "src"
+    "src",
+    "index.js"
   ],
   "repository": {
     "type": "git",

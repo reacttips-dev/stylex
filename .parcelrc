@@ -1,0 +1,12 @@
+{
+  "extends": "@parcel/config-default",
+  "transformers": {
+    "*.{js,ts,tsx,json}": ["@parcel/transformer-inline"],
+    "*.mdx": ["parcel-transformer-mdx-docs"],
+    "*.svg": ["@parcel/transformer-svg-react"]
+  },
+  "namers": ["parcel-namer-docs", "..."],
+  "optimizers": {
+    "*.js": ["parcel-optimizer-ssg", "..."]
+  }
+}

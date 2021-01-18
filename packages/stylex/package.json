@@ -17,5 +17,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ladifire-opensource/stylex"
+  },
+  "dependencies": {
+    "@ladifire-opensource/stylex-theme": "0.0.1-beta1"
   }
 }

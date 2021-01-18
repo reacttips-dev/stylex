@@ -15,6 +15,8 @@ const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
+const StylexPlugin = require("@ladifire-opensource/stylex-webpack-plugin");
+
 const babelConfig = require('./babel.config');
 // const getClientEnvironment = require('./config/env');
 
@@ -162,7 +164,7 @@ var MYSTATS = {
   warningsFilter: '',
 };
 
-let publicPath = '/static/'; // path.resolve(fs.realpathSync(process.cwd()), '/static/');
+let publicPath = '/'; // path.resolve(fs.realpathSync(process.cwd()), '/static/');
 
 const STANDARD_EXCLUDE = [
   path.join(__dirname, 'node_modules'),
@@ -229,88 +231,14 @@ let appConfig = {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        include: [/node_modules\/@ladifire\/stylex/],
-        use: [
-          babelLoaderConfig
-        ],
-      },
-      {
-        test: /\.(ts|tsx)$/,
-        // include: paths.appSrc,
-        // exclude:[/(stories|test)\.(ts|tsx)$/, /__data__/, /node_modules\/@ladifire-css\/sass/],
         exclude: STANDARD_EXCLUDE,
         use: [
           babelLoaderConfig,
-          // { loader: StylexPlugin.loader },
-        ],
-      },
-      {
-        test: /\.(ts|tsx)$/,
-        include: [
-          /@chot.sale\/converstaions-js/,
-          /node_modules\/@ladifire-ui-react\/*/,
-          /node_modules\/@react-ui-aria\/*/,
-          /node_modules\/@react-ui-stately\/*/,
-        ],
-        use: [
-          babelLoaderConfig,
-          // { loader: StylexPlugin.loader },
-        ],
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          // {
-          //   loader: 'typings-for-css-modules-loader?modules&namedExport',
-          // },
-          // 'style-loader',
           {
-            loader: ExtractTextPlugin.loader,
-          },
-          {
-            loader: 'css-loader',
+            loader: StylexPlugin.loader,
             options: {
-              importLoaders: 1,
-              modules: true,
-              camelCase: true,
-              localIdentName: '[sha512:hash:base64:8]',
+              inject: true,
             },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sassOptions: {
-                includePaths: ['node_modules/compass-mixins/lib', 'sass'],
-              },
-            },
-          },
-        ],
-      },
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: ExtractTextPlugin.loader,
-          },
-          {
-            loader: require.resolve('css-loader'),
-            // options: {
-            //     importLoaders: 2,
-            // }
-          },
-          {
-            loader: require.resolve('postcss-loader'),
-            options: {
-              // Necessary for external CSS imports to work
-              // https://github.com/facebookincubator/create-react-app/issues/2677
-              ident: 'postcss',
-              plugins: () => [
-                require('postcss-flexbugs-fixes'),
-                autoprefixer({
-                  flexbox: 'no-2009'
-                })
-              ]
-            }
           },
         ],
       },
@@ -331,13 +259,19 @@ let appConfig = {
         ],
       },
       {
+        test: /\.css$/,
+        exclude: STANDARD_EXCLUDE,
+        use: [
+          {
+            loader: 'style-loader'
+          }
+        ]
+      },
+      {
         test: /\.html$/,
         use: [
           {
             loader: 'html-loader',
-            // options: {
-            //   attrs: 'link:href',
-            // },
           },
         ],
       },
@@ -420,6 +354,8 @@ let appConfig = {
         SPA_DSN: JSON.stringify(env.SENTRY_SPA_DSN),
       },
     }),
+
+    new StylexPlugin(),
   ],
   resolve: {
     alias: {

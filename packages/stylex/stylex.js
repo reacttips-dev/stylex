@@ -5,6 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+const CometStyleXSheet = require("@ladifire-opensource/stylex-theme");
+
+console.log("CometStyleXSheet", CometStyleXSheet);
+
+CometStyleXSheet.rootStyleSheet.injectTheme();
+
 var g = false;
 
 function h(a) {
@@ -62,7 +68,7 @@ function stylex(...args) {
  * })
  *
  * */
-stylex.create = function() {
+stylex.create = function(...args) {
     throw new Error("stylex.create should never be called. It should be compiled away.")
 };
 
@@ -132,8 +138,8 @@ stylex.keyframes = function (a) {
 /**
  * Inject compiled styles to css stylesheet if need (if it's never injected before)
  * */
-stylex.inject = function (a, c, d) {
-
+stylex.inject = function (a, c, d = null) {
+  !g && a.indexOf("@keyframes") === -1 && (g = !0), CometStyleXSheet.rootStyleSheet.insert(a, c, d)
 };
 
 /**
@@ -142,9 +148,9 @@ stylex.inject = function (a, c, d) {
 stylex.absoluteFill = {
     bottom: 0,
     boxSizing: "border-box",
-    end: 0,
+    right: 0,
     position: "absolute",
-    start: 0,
+    left: 0,
     top: 0
 };
 
@@ -248,7 +254,7 @@ stylex.listBase = {
     listStyle: "none",
     marginBottom: 0,
     marginTop: 0,
-    paddingStart: 0
+    paddingLeft: 0
 };
 
 /**

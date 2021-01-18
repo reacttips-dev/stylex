@@ -9,7 +9,7 @@
   "main": "dist/main.js",
   "module": "dist/main.module.js",
   "types": "index.d.ts",
-  "source": "index.ts",
+  "source": "index.js",
   "files": [
     "dist",
     "src"
