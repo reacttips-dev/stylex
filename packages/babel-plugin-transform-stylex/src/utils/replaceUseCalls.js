@@ -3,6 +3,7 @@
 
 const flattenClasses = require("./classNames").flattenClasses;
 const generateExpression = require("./generateExpression");
+const normalizeArguments = require("./normalizeArguments");
 
 function getUses(varDec) {
   if (!varDec.isVariableDeclarator()) {
