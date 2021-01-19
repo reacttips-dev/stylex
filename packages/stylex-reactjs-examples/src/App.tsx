@@ -14,6 +14,7 @@ import {CometProgressRingIndeterminate} from './components-shared-version/Progre
 import {CometCard} from './components-shared-version/Card';
 
 import {DedupeExample} from './examples/dedupe';
+import {ReasponsiveExample} from './examples/responsive';
 
 import "./test.css";
 
@@ -63,6 +64,10 @@ export default () => {
         <div>
           <h3>Keyframes examples</h3>
           <CometProgressRingIndeterminate size={32} color="blue"/>
+        </div>
+        <div>
+          <h3>Responsive examples</h3>
+          <ReasponsiveExample/>
         </div>
       </CometCard>
     </div>
