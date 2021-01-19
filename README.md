@@ -148,10 +148,79 @@ const s = {
 ### Plugin options
 
 #### Inject css to compiled js
-*Describe how to setup stylex to inject css to compiled js*
+
+By default, stylex will inject css to stylesheet object in ```<head>``` of html document.
+
+There is no extra reference links of stylesheets to inject.
+
+The webpack setup should be:
+
+```js
+...
+rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: STANDARD_EXCLUDE,
+        use: [
+          babelLoaderConfig,
+          {
+            loader: StylexPlugin.loader,
+            options: {
+              inject: true,
+            },
+          },
+        ],
+      },
+
+...
+```
+
+In the compiled js, there're something like this will be injected:
+
+```js
+inject('.avcdd15645{color: "red"}')
+```
+
+Then the stylex runtime code will excute the ```inject``` function and add ```'.avcdd15645{color: "red"}'```
+to the stylesheet in the ```<head>``` section.
 
 #### Separate css into .css files
-*Describe how to setup stylex to separate css into reference links*
+
+In case you want to use stylex with ```mini-css-extract-plugin``` to seprate css
+into reference links, you can setup in your webpack config as bellow:
+
+```js
+...
+const ExtractTextPlugin = require('mini-css-extract-plugin');
+const StylexPlugin = require("@ladifire-opensource/stylex-webpack-plugin");
+
+...
+rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: STANDARD_EXCLUDE,
+        use: [
+          babelLoaderConfig,
+          {
+            loader: StylexPlugin.loader,
+            options: {
+              inject: false, // set false to ignore inject css to js
+            },
+          },
+        ],
+      },
+
+...
+
+plugins: [
+   new StylexPlugin(), 
+   new ExtractTextPlugin({
+      filename: '[name].[contentHash:11].css',
+      chunkFilename: '[name].[contentHash:11].css',
+    }),
+
+...
+```
 
 ### Babel
 
