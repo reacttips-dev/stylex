@@ -62,6 +62,9 @@ export default () => {
         Dedupe
       </div>
       <ChildComponent />
+      <div>
+        {`animation is not working yet for {inject: true} option`}
+      </div>
     </div>
   );
 }

@@ -40,5 +40,6 @@ function getSimpleHash() {
 }
 
 module.exports = function getClassHash(text) {
+  // class name must be start with letter
   return getOneLetterHash(text) + getSimpleHash(text);
 };

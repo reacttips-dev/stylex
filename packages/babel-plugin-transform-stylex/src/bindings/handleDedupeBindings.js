@@ -45,7 +45,7 @@ module.exports = function handleDedupeBindings(identifier, opts, path) {
         const _styles = doDedupe(objExpr, opts, path);
         _finalStyles = _finalStyles.concat(_styles);
       } else if (objExpr.isConditionalExpression()) {
-        // test if ternary operator
+        // TODO: test if ternary operator, need more review
         const consequent = objExpr.get("consequent");
         const alternate = objExpr.get("alternate");
 
@@ -64,7 +64,7 @@ module.exports = function handleDedupeBindings(identifier, opts, path) {
         }
 
       } else {
-        // TODO: maybe there're nothing else to handle with stylex
+        // TODO: maybe there're nothing else to handle with stylex, need more review
       }
     })
   }
