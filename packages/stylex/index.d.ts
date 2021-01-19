@@ -14,13 +14,13 @@
 
 import * as CSS from 'csstype';
 
-import {CSSObject, CSSPropertiesWithNestedPseudo} from './global';
+import {CssStyle, Style} from './global';
 
 // tslint:disable-next-line:export-just-namespace
 export = stylex;
 export as namespace stylex;
 
-declare function stylex(style: CSS.Properties | CSS.Properties[]): string;
+declare function stylex(...style: (CssStyle | CssStyle[])[]): string;
   
 declare namespace stylex {
   // TODO 1: phần này chưa có definition
@@ -40,9 +40,7 @@ declare namespace stylex {
   //     marginLeft: 8,
   //   },
   // });
-  function create<T extends string | number>(
-    styles: CSSPropertiesWithNestedPseudo<T>
-  ): { [key in T]: CSS.Properties };
+  function create<T extends string | number>(styles: Style<T>) : { [key in T]: CssStyle }
 
   // TODO 3: stylex.dedupe(...)
   // Hàm này dedupe (có thể hiểu là sẽ lấy các giá trị sau đè lên các giá trị trước) các dối tượng theo một điều kiện nào đó
@@ -95,7 +93,7 @@ declare namespace stylex {
   //     },
   //   )}
   // />
-  function dedupe(...styles: CSS.Properties[]): string;
+  function dedupe(...styles: CssStyle[]): string;
 
   // TODO 4: stylex.compose(...)
   // Hàm này merge các đối tượng stylex lại với nhau (kết quả là một đối tượng stylex duy nhất)
@@ -110,7 +108,7 @@ declare namespace stylex {
   //     }
   //   )};
   // />
-  function compose(...styles: CSS.Properties[]): CSS.Properties;
+  function compose(...styles: CssStyle[]): CssStyle;
 
   // TODO 5: stylex.keyframes(...)
   // Hàm này khai báo một keyframes animation name
@@ -133,7 +131,7 @@ declare namespace stylex {
   //     opacity: 0.25
   //   }
   // });
-  function keyframes(rules: { [key: string]: CSS.Properties }): string;
+  function keyframes(rules: CssStyle): string;
 
   // TODO 6: stylex.inject(...)
   // inject một chuỗi css vào compiled js
