@@ -64,7 +64,7 @@ module.exports = function handleDedupeBindings(identifier, opts, path) {
         }
 
       } else {
-        // TODO:
+        // TODO: maybe there're nothing else to handle with stylex
       }
     })
   }

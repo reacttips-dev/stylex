@@ -47,7 +47,7 @@ class StyleXSheet {
     this.rootDarkTheme = props.rootDarkTheme;
     this.isSlow = (c = props.isSlow) != null ? c : typeof location === "object" && typeof location.search === "string" ? location.search.includes("stylex-slow") : !1;
     this.supportsVariables = (c = props.supportsVariables) != null ? c : l();
-    this._isRTL = false; // TODO: need options RTL for plugin
+    this._isRTL = false; // TODO: need RTL from runtime
     this.externalRules = new Set()
   }
 

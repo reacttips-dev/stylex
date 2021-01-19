@@ -2,6 +2,10 @@
 node_modules
 *~
 __benchmarks__
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
 build
 dist
 public

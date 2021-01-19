@@ -41,6 +41,7 @@
     "source-map-loader": "^2.0.0"
   },
   "scripts": {
-    "run": "webpack --progress --watch"
+    "run": "webpack --progress --watch",
+    "start:server": "node server.js"
   }
 }

@@ -1,4 +1,4 @@
-# About Stylex
+# Stylex
 
 NOTE: Sylex will be released on February 1, 2021. Give this repo a star!
 
@@ -6,6 +6,8 @@ See Facebook React conf video for about Stylex: [Click here](https://youtu.be/9J
 
 ## Join Stylex Community (Facebook group)
 Visit [this link](https://www.facebook.com/groups/713597106002279) to join Stylex community.
+
+## Installation
 
 ## How to use?
 
@@ -56,10 +58,6 @@ This method will dedupe (override) duplicate style properties:
 
 ### Compose (merge) stylex objects ```(stylex.compose)```
 
-## Theming support
-
-## Stylex setups
-
 ### Webpack
 
 #### Inject css to compiled js
@@ -68,8 +66,14 @@ This method will dedupe (override) duplicate style properties:
 
 ### babel
 
-### SSR
+### SSR support
 
-## Typescript support
+### Others 
+#### Typescript support
+#### Theming with stylex
 
+## Contributing
 
+### License
+
+Stylex is [MIT licensed](./LICENSE).

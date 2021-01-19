@@ -1,3 +1,6 @@
+// some parts of this file is reference from: https://github.com/johanholmerin/style9
+// thanks to: @johanholmerin
+
 const postcss = require('postcss');
 const discardDuplicates = require('postcss-discard-duplicates');
 const selectorParser = require('postcss-selector-parser');
@@ -85,8 +88,8 @@ function extractDecls(decls) {
 
   decls.forEach(rule => {
     const selectors = parseSelector(rule.parent);
-    const isStyle9Selector = isValidSelector(selectors);
-    if (!isStyle9Selector) return;
+    const isStylexSelector = isValidSelector(selectors);
+    if (!isStylexSelector) return;
     const pseudoClasses = getPseudoClasses(selectors.nodes[0])
     const mediaQueries = getMediaQueries(rule.parent);
     const decl = removeWithContext(rule);

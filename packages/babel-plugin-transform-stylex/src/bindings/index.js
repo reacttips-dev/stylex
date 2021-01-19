@@ -11,6 +11,7 @@ const {
 const handleCreateBindings = require("./handleCreateBindings");
 const handleDedupeBindings = require("./handleDedupeBindings");
 const handleKeyframesBindings = require("./handleKeyframesBindings");
+const handleComposeBindings = require("./handleComposeBindings");
 
 require("../utils/pollyfils.js");
 
@@ -29,6 +30,11 @@ function handleBinding(node, opts, path) {
     return handleKeyframesBindings(node);
   }
 
+  if (isPropertyCall(node, 'compose')) {
+    return handleComposeBindings(node);
+  }
+
+  // TODO: throw an error if there're nothing match
   return ".aaa{color: red;}"
 }
 

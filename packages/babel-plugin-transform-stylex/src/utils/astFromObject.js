@@ -1,3 +1,6 @@
+// some parts of this file is reference from: https://github.com/johanholmerin/style9
+// thanks to: @johanholmerin
+
 const t = require('@babel/types');
 
 module.exports = function astFromObject(obj) {

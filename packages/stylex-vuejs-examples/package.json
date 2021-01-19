@@ -1,0 +1,21 @@
+{
+  "name": "@ladifire-opensource/stylex-angular-examples",
+  "version": "0.0.1-beta1",
+  "description": "Stylex examples for Angular",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ladifire-opensource/stylex"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+    "run": "webpack --progress --watch"
+  }
+}

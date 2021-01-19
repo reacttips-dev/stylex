@@ -1,4 +1,5 @@
-// License: https://github.com/johanholmerin/style9
+// some parts of this file is reference from: https://github.com/johanholmerin/style9
+// thanks to: @johanholmerin
 
 function getAst(ast, path) {
   if (Array.isArray(ast)) return ast[path];

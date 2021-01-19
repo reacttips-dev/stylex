@@ -1,3 +1,12 @@
+/**
+ * Copyright (c) Ladifire, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+// Create a server for app
+
 // Transpile all code following this line with babel and use '@babel/preset-env' (aka ES6) preset.
 // require("babel-core/register");
 require("babel-polyfill");
@@ -49,14 +58,7 @@ staticServer.listen(appPort, err => {
   if (err) throw err;
 
   console.log(
-    chalk.yellow('>>> Static server is running in mode: development'),
-    // chalk.yellow('\n>>> Main server URL is:', API_URL),
+    chalk.yellow(`>>> Server is running on port: ${appPort}`),
     Date.now()
-  );
-
-  console.info(
-    chalk.cyan(
-      `Ready! Static server is running at: 5008 now. Have fun!`
-    )
   );
 });

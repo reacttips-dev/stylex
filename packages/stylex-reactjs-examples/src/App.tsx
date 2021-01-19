@@ -20,10 +20,11 @@ const styles = stylex.create<Style>({
     color: "blue",
     padding: 4,
     backgroundColor: 'red',
-    // color
+    // color <= TODO: test realtime edit error, this will crash webpack => need fix
   },
 });
 
+// TODO: test custom inject
 stylex.inject(".a55dalm2{background-color:red}");
 
 export default () => {
@@ -52,7 +53,6 @@ export default () => {
             animationIterationCount: "infinite",
             animationTimingFunction: "cubic-bezier(.33,0,.67,1)",
             animationDuration: "5s",
-            // transitionL
           },
           isError ? {
             color: "var(--negative)"

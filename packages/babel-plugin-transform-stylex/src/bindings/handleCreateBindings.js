@@ -38,6 +38,7 @@ module.exports = function handleCreateBindings(identifier, opts, path) {
 
   replaceDeclaration(callExpr, classes);
   const cssString = stylesUtils.generateStyles(styles);
+  console.log("cssStringcssStringcssString", cssString);
 
   // only inject this to js, if there's an option {inject: true}
   if (opts && opts.inject) {

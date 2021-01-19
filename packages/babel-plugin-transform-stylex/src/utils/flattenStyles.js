@@ -1,3 +1,6 @@
+// some parts of this file is reference from: https://github.com/johanholmerin/style9
+// thanks to: @johanholmerin
+
 const normalizePseudoElements = require("./normalizePseudoElements");
 const isNestedObjects = require("./isNestedObjects");
 
