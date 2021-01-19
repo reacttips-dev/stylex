@@ -10,19 +10,19 @@ Visit [this link](https://www.facebook.com/groups/713597106002279) to join Style
 ## Installation (Not ready yet)
 
 Yarn users:
-```
+```bash
 yarn add @ladifire-opensource/stylex
 ```
 
 Npm users:
-```
+```bash
 npm install @ladifire-opensource/stylex
 ```
 
 The second step is depending on what bundler you use, for webpack you 
 need to install a webpack plugin
 
-```
+```bash
 yarn add @ladifire-opensource/stylex-webpack-plugin
 ```
 
@@ -34,7 +34,7 @@ There're some methods you can you with stylex:
 
 This method will create a new stylex object:
 
-```
+```js
 const styles = stylex.create({
   root: {
     fontWeight: 700,
@@ -48,7 +48,7 @@ const styles = stylex.create({
 
 Then we can use as:
 
-```
+```js
 <div className={stylex(styles.root)}>
   Component
 </div>
@@ -58,7 +58,7 @@ Then we can use as:
 
 This method will dedupe (override) duplicate style properties:
 
-```
+```js
 <div
     className={stylex.dedupe(
       {
@@ -75,7 +75,7 @@ This method will dedupe (override) duplicate style properties:
 
 ### Create a keyframes animation name ```(stylex.keyframes)```
 
-```
+```js
 let j = stylex.create({
   dark: {
     backgroundColor: "var(--placeholder-icon)"
@@ -104,7 +104,7 @@ let j = stylex.create({
 
 ### Compose (merge) stylex objects ```(stylex.compose)```
 
-```
+```js
 const s = stylex.compose(
   {
     color: "red",
@@ -117,7 +117,7 @@ const s = stylex.compose(
 ```
 
 The above code will transformed to:
-```
+```js
 const s = {
     color: "a512sdfe5", // red
     backgroundColor: "wer115asse" // white
