@@ -15,7 +15,7 @@ const styles = stylex.create({
     color: "yellow"
   },
   button: {
-    borderRadius: 8,
+    borderRadius: 8, // TODO: number is not recognized
   },
   animationFillModeAndTimingFn: {
     animationFillMode: "both",
@@ -269,6 +269,89 @@ const styles = stylex.create({
     }),
     animationTimingFunction: "steps(10,end)",
     transformOrigin: "50% 50%"
+  },
+  backgroundContainerDialog: {
+    "@media (max-width: 899px)": { // TODO: check here, miss "a@media"
+      height: "calc(50vh)"
+    }
+  },
+  backgroundContainerDialogWithFooter: {
+    height: "calc(100vh - 52px)",
+    "@media (max-width: 899px)": {
+      height: "calc(50vh - 52px)"
+    }
+  },
+  backgroundContainerResponsive: {
+    alignItems: "center",
+    display: "flex",
+    position: "relative",
+    "@media (max-width: 899px)": {
+      height: "auto"
+    }
+  },
+  backgroundContainerTabs: {
+    height: "calc(100vh - var(--header-height))",
+    "@media (max-width: 899px)": {
+      height: "calc(50vh - var(--header-height))"
+    }
+  },
+  backgroundContainerTabsWithFooter: {
+    height: "calc(100vh - var(--header-height) - 52px)",
+    "@media (max-width: 899px)": {
+      height: "calc(50vh - var(--header-height) - 52px)"
+    }
+  },
+  image: {
+    maxWidth: "100%",
+    "@media (max-width: 899px)": {
+      maxHeight: "50vh"
+    }
+  },
+  maxImageHeightDialog: {
+    maxHeight: "100vh",
+    "@media (max-width: 899px)": {
+      maxHeight: "calc(50vh - var(--header-height))"
+    }
+  },
+  maxImageHeightDialogWithFooter: {
+    maxHeight: "calc(100vh - 52px)",
+    "@media (max-width: 899px)": {
+      maxHeight: "calc(50vh - 52px)"
+    }
+  },
+  maxImageHeightTabs: {
+    maxHeight: "calc(100vh - var(--header-height))",
+    "@media (max-width: 899px)": {
+      maxHeight: "calc(50vh - var(--header-height))"
+    }
+  },
+  maxImageHeightTabsWithFooter: {
+    maxHeight: "kgqd366c",
+    "@media (max-width: 899px)": {
+      maxHeight: "calc(50vh - var(--header-height) - 52px)"
+    }
+  },
+  passthroughImage: {
+    backgroundPosition: "center center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "contain",
+    height: "100%",
+    width: "100%"
+  },
+  photoWrapperPlaceholder: {
+    height: "100%",
+    width: "100%"
+  },
+  photoWrapperResponsive: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    position: "relative"
+  },
+  placeholderContainer: {
+    height: "100%",
+    width: "100%"
   }
 });
 
