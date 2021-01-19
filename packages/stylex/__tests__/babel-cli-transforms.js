@@ -9,11 +9,13 @@ const babel = require("@babel/core");
 const transform = require("@ladifire-opensource/babel-plugin-transform-stylex");
 
 module.exports = function babelCliTransform(input, opts = {}) {
+  const transformed = babel.transformSync(input, {filename: "test.js", plugins: [[transform, opts]]});
+
   const {
     code,
     ast,
     metadata: {stylex: styles}
-  } = babel.transformSync(input, {plugins: [[transform, opts]]});
+  } = transformed;
 
   return {
     code,
