@@ -10,7 +10,6 @@ const template = require('@babel/template').default;
 module.exports = function injectStyles(styles, path) {
   if (styles && styles.length > 0) {
     styles.map((styleObject) => {
-      console.log("styleObject: ", styleObject);
       if (styleObject) {
         const append = template(`stylex.inject("` + `${styleObject.toString().replace(/"/g, '\\"')}` + `");`);
         path.pushContainer('body', append())

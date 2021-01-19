@@ -7,17 +7,16 @@
 
 const chalk = require("chalk");
 const babel = require('@babel/core');
-const babelPlugin = require("@ladifire-opensource/babel-plugin-transform-stylex");
 const loaderUtils = require('loader-utils');
-// const virtualModules = require('./src/virtualModules.js');
 const path = require('path');
 
+const babelPlugin = require("@ladifire-opensource/babel-plugin-transform-stylex");
 const virtualModules = require('./virtualModules');
 
 async function stylexLoader(input, inputSourceMap) {
   const {
     inlineLoader = '',
-    outputCSS = false,
+    inject = false,
     ...options
   } = loaderUtils.getOptions(this) || {};
 
@@ -34,7 +33,7 @@ async function stylexLoader(input, inputSourceMap) {
   try {
     if (metadata.stylex === undefined) {
       this.callback(null, input, inputSourceMap);
-    } else if (!outputCSS) {
+    } else if (!inject) {
       this.callback(null, code, map);
     } else {
       const cssPath = loaderUtils.interpolateName(

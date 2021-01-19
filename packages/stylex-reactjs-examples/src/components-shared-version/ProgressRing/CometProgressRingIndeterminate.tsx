@@ -1,22 +1,23 @@
-/**
- * Copyright (c) Ladifire, Inc. and its affiliates.
+/*
+ * Copyright 2020-present Ladifire. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
  */
 
 import * as React from 'react';
 
 import stylex from '@ladifire-opensource/stylex';
 
-const styles = stylex.create({
-  root: {
-    fontWeight: 700,
-    color: "blue"
-  },
-  button: {
-    borderRadius: 8, // TODO: number is not recognized
-  },
+import {ariaGlimmerProps} from './ariaGlimmerProps';
+import {CometProgressRingUtils} from './CometProgressRingUtils';
+
+const i = stylex.create({
   animationFillModeAndTimingFn: {
     animationFillMode: "both",
     animationTimingFunction: "cubic-bezier(0,0,1,1)",
@@ -269,96 +270,37 @@ const styles = stylex.create({
     }),
     animationTimingFunction: "steps(10,end)",
     transformOrigin: "50% 50%"
-  },
-  backgroundContainerDialog: {
-    "@media (max-width: 899px)": { // TODO: check here, miss "a@media"
-      height: "calc(50vh)"
-    }
-  },
-  backgroundContainerDialogWithFooter: {
-    height: "calc(100vh - 52px)",
-    "@media (max-width: 899px)": {
-      height: "calc(50vh - 52px)"
-    }
-  },
-  backgroundContainerResponsive: {
-    alignItems: "center",
-    display: "flex",
-    position: "relative",
-    "@media (max-width: 899px)": {
-      height: "auto"
-    }
-  },
-  backgroundContainerTabs: {
-    height: "calc(100vh - var(--header-height))",
-    "@media (max-width: 899px)": {
-      height: "calc(50vh - var(--header-height))"
-    }
-  },
-  backgroundContainerTabsWithFooter: {
-    height: "calc(100vh - var(--header-height) - 52px)",
-    "@media (max-width: 899px)": {
-      height: "calc(50vh - var(--header-height) - 52px)"
-    }
-  },
-  image: {
-    maxWidth: "100%",
-    "@media (max-width: 899px)": {
-      maxHeight: "50vh"
-    }
-  },
-  maxImageHeightDialog: {
-    maxHeight: "100vh",
-    "@media (max-width: 899px)": {
-      maxHeight: "calc(50vh - var(--header-height))"
-    }
-  },
-  maxImageHeightDialogWithFooter: {
-    maxHeight: "calc(100vh - 52px)",
-    "@media (max-width: 899px)": {
-      maxHeight: "calc(50vh - 52px)"
-    }
-  },
-  maxImageHeightTabs: {
-    maxHeight: "calc(100vh - var(--header-height))",
-    "@media (max-width: 899px)": {
-      maxHeight: "calc(50vh - var(--header-height))"
-    }
-  },
-  maxImageHeightTabsWithFooter: {
-    maxHeight: "kgqd366c",
-    "@media (max-width: 899px)": {
-      maxHeight: "calc(50vh - var(--header-height) - 52px)"
-    }
-  },
-  passthroughImage: {
-    backgroundPosition: "center center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
-    height: "100%",
-    width: "100%"
-  },
-  photoWrapperPlaceholder: {
-    height: "100%",
-    width: "100%"
-  },
-  photoWrapperResponsive: {
-    alignItems: "center",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    position: "relative"
-  },
-  placeholderContainer: {
-    height: "100%",
-    width: "100%"
   }
 });
 
-export const ChildComponent = () => {
+const j = 2;
+
+export function CometProgressRingIndeterminate(a) {
+  let c = a.color,
+    d = a.size;
+  a = CometProgressRingUtils.getRingColor(c);
+  let e = a.foregroundColor,
+    f = (d - j) * Math.PI;
+
   return (
-    <div className={stylex(styles.root, styles.placeholderContainer)}>
-      Child Component
-    </div>
+    <svg
+      {...Object.assign({
+        className: stylex(i.rotationCircle, i.animationFillModeAndTimingFn, !c && i.hideOutline),
+        height: d,
+        viewBox: "0 0 " + d + " " + d,
+        width: d
+      }, ariaGlimmerProps, {
+        children: React.createElement("circle", {
+          className: stylex([i.foregroundCircle, d === 12 && i.foregroundCircle12, d === 16 && i.foregroundCircle16, d === 20 && i.foregroundCircle20, d === 24 && i.foregroundCircle24, d === 32 && i.foregroundCircle32, d === 48 && i.foregroundCircle48, d === 60 && i.foregroundCircle60, d === 72 && i.foregroundCircle72]),
+          cx: d / 2,
+          cy: d / 2,
+          fill: "none",
+          r: (d - j) / 2,
+          stroke: e,
+          strokeDasharray: f,
+          strokeWidth: j
+        })
+      })}
+    />
   );
-};
+}
