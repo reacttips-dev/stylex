@@ -33,7 +33,7 @@ const styles = stylex.create<Style>({
     marginRight: "auto",
   },
   card: {
-    padding: 16
+    padding: 16,
   },
 });
 

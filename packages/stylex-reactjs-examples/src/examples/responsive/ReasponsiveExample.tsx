@@ -23,7 +23,7 @@ const styles = stylex.create({
 
     "@media (max-width: 899px)": {
       width: "100%",
-    }
+    },
   },
 });
 

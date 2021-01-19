@@ -13,7 +13,7 @@ it('string', () => {
         color: "var(--primary-text)"
       }
     });
-    styles('root', 'button');
+        var a = styles('root', 'button');
   `;
   const {code} = babelCliTransform(input);
   expect(code).toMatchSnapshot();

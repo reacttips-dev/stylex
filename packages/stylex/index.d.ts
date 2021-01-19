@@ -5,23 +5,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// @Châu Trần, @NguyenVuNhan, ...
-
 // TODO: Phần mô tả ở dưới đây mình tạm để tiếng việt cho một số bạn không rành TA tham gia
 // TODO: Xem ví dụ thực tế khi sử dụng trong file: ./packages/uses_cases_DEPRECATED/uses_cases_DEPRECATED.tsx
 // TODO: Hàm create dưới đây là đoạn mình viết, nhưng nó vẫn chưa thực sự chuẩn với mọi trường hợp, nên cũng cần review lại
 // TODO: (Khi viết type definition nhớ để ý pseudo, media query nhé)
 
-import * as CSS from 'csstype';
-
-import {CssStyle, Style} from './global';
+import {CSSPropertiesWithNestedPseudo, CSSObject, CSSProperties} from './global';
 
 // tslint:disable-next-line:export-just-namespace
 export = stylex;
 export as namespace stylex;
 
-declare function stylex(...style: (CssStyle | CssStyle[])[]): string;
-  
+declare function stylex<T extends string>(...style: (CSSObject | CSSObject[])[]): string;
+
 declare namespace stylex {
   // TODO 1: phần này chưa có definition
   // vd 1: className={stylex(styles.root)} <== truyền 1 object stylex
@@ -40,7 +36,16 @@ declare namespace stylex {
   //     marginLeft: 8,
   //   },
   // });
-  function create<T extends string | number>(styles: Style<T>) : { [key in T]: CssStyle }
+  function create<T extends string | number>(styles: CSSPropertiesWithNestedPseudo<T>):
+    { [key in T]: CSSProperties } & (
+    (...styles: (
+      | keyof T
+      | boolean
+      | undefined
+      | null
+      | { [key in keyof T]?: boolean | undefined | null }
+      )[]) => string
+    )
 
   // TODO 3: stylex.dedupe(...)
   // Hàm này dedupe (có thể hiểu là sẽ lấy các giá trị sau đè lên các giá trị trước) các dối tượng theo một điều kiện nào đó
