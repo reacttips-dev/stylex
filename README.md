@@ -35,6 +35,8 @@ There're some methods you can you with stylex:
 This method will create a new stylex object:
 
 ```js
+import stylex from "@ladifire-opensource/stylex";
+
 const styles = stylex.create({
   root: {
     fontWeight: 700,
@@ -50,6 +52,22 @@ Then we can use as:
 
 ```js
 <div className={stylex(styles.root)}>
+  Component
+</div>
+```
+
+The arguments of ```stylex(...args)``` can be separated by comma:
+
+```js
+<div className={stylex(styles.root, styles.button)}>
+  Component
+</div>
+```
+
+or as an array:
+
+```js
+<div className={stylex([styles.root, styles.button])}>
   Component
 </div>
 ```
@@ -145,10 +163,68 @@ const s = {
 *Describe how to use stylex with typescript support*
 
 #### Pass stylex through props (Reactjs)
-*Describe about xstyle props*
+
+If you using Reactjs, consider to use **xstyle** props to pass some stylex class from
+parent to child. Let's see bellow example:
+
+```js
+import * as React from "react";
+import stylex from "@ladifire-opensource/stylex";
+import ChildComponent from "./path/to/child";
+
+type Style = 
+    | "root";
+
+const styles = stylex.create({
+    root: {
+        color: "red"
+    },
+});
+
+const Parent = () => {
+    return (
+        <ChildComponent
+            xstyle={styles.root}
+            //...otherProps
+        />
+    );
+}
+```
+
+The ```xstyle``` prop is a good method because it helps to combine style props under one namespace
+and doesn't populate the global orios environment and it looks similar to the goal of
+sx prop.
+
+Then in your child component you can use ```xstyle``` props as:
+
+```js
+import * as React from "react";
+
+import stylex from "@ladifire-opensource/stylex";
+
+const styles = stylex.create({
+  root: {
+    backgroundColor: "red"
+  },
+});
+
+const ChildComponent = (props) => {
+  const {
+    xstyle,
+  } = props;
+  
+  return (
+    <div className={stylex(styles.root, xstyle)}>
+      Child
+    </div>
+  );
+};
+```
 
 #### Theming with stylex
-*Describe how to theming with stylex*
+
+We're working to bring theming to stylex, through the package ```stylex-theme```. It's
+coming soon!
 
 ## Thanks to
 
@@ -165,7 +241,8 @@ Fork the `stylex` repository to your GitHub Account.
 
 Then, run: ```yarn install```
 
-[!!! under construction !!!]
+To see reactjs demo, cd to ```stylex-reactjs-examples``` and following steps in
+README.md to run Reactjs demo
 
 ### License
 

@@ -357,7 +357,7 @@ const styles = stylex.create({
 
 export const ChildComponent = () => {
   return (
-    <div className={stylex(styles.root)}>
+    <div className={stylex(styles.root, styles.placeholderContainer)}>
       Child Component
     </div>
   );
