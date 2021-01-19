@@ -1,7 +1,7 @@
 {
-  "name": "@ladifire-opensource/stylex-angular-examples",
+  "name": "@ladifire-opensource/stylex-vuejs-examples",
   "version": "0.0.1-beta1",
-  "description": "Stylex examples for Angular",
+  "description": "Stylex examples for Vuejs",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
