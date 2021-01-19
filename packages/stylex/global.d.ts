@@ -126,14 +126,26 @@ export type SimplePseudos =
 
 export type Pseudos = AdvancedPseudos | SimplePseudos;
 
-export type CSSPropertiesWithNestedPseudo<T extends string | number> = {
-  [key in T]: CSS.Properties
-} & {
-  [key in T]: {
-    [key in Pseudos]?: CSS.Properties
-  }
-}
 
-export type CSSObject = CSS.Properties & {
-  [key in Pseudos]?: CSS.Properties
-}
+export type CSSPropertiesWithNestedPseudo<T extends string | number> =
+  | ({
+      [key in T]: CSS.Properties;
+    } &
+      {
+        [key in T]: {
+          [pseudosKey in Pseudos]?: CSS.Properties;
+        };
+      })
+  | {
+      [key in T]: {
+        [key: string]: CSS.Properties; // for media
+      };
+    };
+
+export type CSSObject = CSS.Properties &
+  {
+    [key in Pseudos]?: CSS.Properties;
+  } & {
+    [key: string]: CSS.Properties; // for media
+  };
+
