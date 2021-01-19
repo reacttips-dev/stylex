@@ -20,11 +20,7 @@ import {CssStyle, Style} from './global';
 export = stylex;
 export as namespace stylex;
 
-<<<<<<< HEAD
 declare function stylex(...style: (CssStyle | CssStyle[])[]): string;
-=======
-declare function stylex(style: CSS.Properties | CSS.Properties[]): string;
->>>>>>> ee8219449782dc5c01695f0df7a26c5eccb12510
   
 declare namespace stylex {
   // TODO 1: phần này chưa có definition
@@ -44,13 +40,7 @@ declare namespace stylex {
   //     marginLeft: 8,
   //   },
   // });
-<<<<<<< HEAD
   function create<T extends string | number>(styles: Style<T>) : { [key in T]: CssStyle }
-=======
-  function create<T extends string | number>(
-    styles: CSSPropertiesWithNestedPseudo<T>
-  ): { [key in T]: CSS.Properties };
->>>>>>> ee8219449782dc5c01695f0df7a26c5eccb12510
 
   // TODO 3: stylex.dedupe(...)
   // Hàm này dedupe (có thể hiểu là sẽ lấy các giá trị sau đè lên các giá trị trước) các dối tượng theo một điều kiện nào đó
@@ -103,11 +93,7 @@ declare namespace stylex {
   //     },
   //   )}
   // />
-<<<<<<< HEAD
   function dedupe(...styles: CssStyle[]): string;
-=======
-  function dedupe(...styles: CSS.Properties[]): string;
->>>>>>> ee8219449782dc5c01695f0df7a26c5eccb12510
 
   // TODO 4: stylex.compose(...)
   // Hàm này merge các đối tượng stylex lại với nhau (kết quả là một đối tượng stylex duy nhất)
@@ -122,11 +108,7 @@ declare namespace stylex {
   //     }
   //   )};
   // />
-<<<<<<< HEAD
   function compose(...styles: CssStyle[]): CssStyle;
-=======
-  function compose(...styles: CSS.Properties[]): CSS.Properties;
->>>>>>> ee8219449782dc5c01695f0df7a26c5eccb12510
 
   // TODO 5: stylex.keyframes(...)
   // Hàm này khai báo một keyframes animation name
@@ -149,11 +131,7 @@ declare namespace stylex {
   //     opacity: 0.25
   //   }
   // });
-<<<<<<< HEAD
   function keyframes(rules: CssStyle): string;
-=======
-  function keyframes(rules: { [key: string]: CSS.Properties }): string;
->>>>>>> ee8219449782dc5c01695f0df7a26c5eccb12510
 
   // TODO 6: stylex.inject(...)
   // inject một chuỗi css vào compiled js
