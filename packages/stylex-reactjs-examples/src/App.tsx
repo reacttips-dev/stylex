@@ -10,17 +10,30 @@ import * as React from 'react';
 import stylex from '@ladifire-opensource/stylex';
 
 import {ChildComponent} from './ChildComponent';
+import {CometProgressRingIndeterminate} from './components-shared-version/ProgressRing';
+import {CometCard} from './components-shared-version/Card';
+
+import {DedupeExample} from './examples/dedupe';
+import {ReasponsiveExample} from './examples/responsive';
+
 import "./test.css";
 
 type Style =
-  | 'root';
+  | 'root'
+  | 'card';
 
 const styles = stylex.create<Style>({
   root: {
-    color: "blue",
-    padding: 4,
-    backgroundColor: 'red',
-    // color <= TODO: test realtime edit error, this will crash webpack => need fix
+    display: "flex",
+    flexDirection: "column",
+    maxWidth: 850,
+    marginTop: 0,
+    marginBottom: 0,
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+  card: {
+    padding: 16
   },
 });
 
@@ -32,39 +45,31 @@ export default () => {
 
   return (
     <div className={stylex(styles.root)}>
-      <div>
-        Wellcome to Stylex
-      </div>
-      <div
-        className={stylex.dedupe(
-          {
-            color: "var(--primary-text)",
-            animationName: stylex.keyframes({
-              '0%': {
-                transform: 'rotate(0deg)',
-              },
-              '45%': {
-                transform: 'rotate(-45deg)',
-              },
-              '100%': {
-                transform: 'rotate(-90deg)',
-              },
-            }),
-            animationIterationCount: "infinite",
-            animationTimingFunction: "cubic-bezier(.33,0,.67,1)",
-            animationDuration: "5s",
-          },
-          isError ? {
-            color: "var(--negative)"
-          } : null,
-        )}
+      <CometCard
+        dropShadow={1}
+        background="white"
+        xstyle={styles.card}
       >
-        Dedupe
-      </div>
-      <ChildComponent />
-      <div>
-        {`animation is not working yet for {inject: true} option`}
-      </div>
+        <h1>
+          Stylex Reactjs examples
+        </h1>
+        <hr/>
+        <div>
+          <ChildComponent />
+        </div>
+        <div>
+          <h3>Dedupe examples</h3>
+          <DedupeExample/>
+        </div>
+        <div>
+          <h3>Keyframes examples</h3>
+          <CometProgressRingIndeterminate size={32} color="blue"/>
+        </div>
+        <div>
+          <h3>Responsive examples</h3>
+          <ReasponsiveExample/>
+        </div>
+      </CometCard>
     </div>
   );
 }

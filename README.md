@@ -10,19 +10,19 @@ Visit [this link](https://www.facebook.com/groups/713597106002279) to join Style
 ## Installation (Not ready yet)
 
 Yarn users:
-```
+```bash
 yarn add @ladifire-opensource/stylex
 ```
 
 Npm users:
-```
+```bash
 npm install @ladifire-opensource/stylex
 ```
 
 The second step is depending on what bundler you use, for webpack you 
 need to install a webpack plugin
 
-```
+```bash
 yarn add @ladifire-opensource/stylex-webpack-plugin
 ```
 
@@ -34,7 +34,9 @@ There're some methods you can you with stylex:
 
 This method will create a new stylex object:
 
-```
+```js
+import stylex from "@ladifire-opensource/stylex";
+
 const styles = stylex.create({
   root: {
     fontWeight: 700,
@@ -48,8 +50,24 @@ const styles = stylex.create({
 
 Then we can use as:
 
-```
+```js
 <div className={stylex(styles.root)}>
+  Component
+</div>
+```
+
+The arguments of ```stylex(...args)``` can be separated by comma:
+
+```js
+<div className={stylex(styles.root, styles.button)}>
+  Component
+</div>
+```
+
+or as an array:
+
+```js
+<div className={stylex([styles.root, styles.button])}>
   Component
 </div>
 ```
@@ -58,7 +76,7 @@ Then we can use as:
 
 This method will dedupe (override) duplicate style properties:
 
-```
+```js
 <div
     className={stylex.dedupe(
       {
@@ -75,7 +93,7 @@ This method will dedupe (override) duplicate style properties:
 
 ### Create a keyframes animation name ```(stylex.keyframes)```
 
-```
+```js
 let j = stylex.create({
   dark: {
     backgroundColor: "var(--placeholder-icon)"
@@ -104,7 +122,7 @@ let j = stylex.create({
 
 ### Compose (merge) stylex objects ```(stylex.compose)```
 
-```
+```js
 const s = stylex.compose(
   {
     color: "red",
@@ -117,7 +135,7 @@ const s = stylex.compose(
 ```
 
 The above code will transformed to:
-```
+```js
 const s = {
     color: "a512sdfe5", // red
     backgroundColor: "wer115asse" // white
@@ -130,10 +148,79 @@ const s = {
 ### Plugin options
 
 #### Inject css to compiled js
-*Describe how to setup stylex to inject css to compiled js*
+
+By default, stylex will inject css to stylesheet object in ```<head>``` of html document.
+
+There is no extra reference links of stylesheets to inject.
+
+The webpack setup should be:
+
+```js
+...
+rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: STANDARD_EXCLUDE,
+        use: [
+          babelLoaderConfig,
+          {
+            loader: StylexPlugin.loader,
+            options: {
+              inject: true,
+            },
+          },
+        ],
+      },
+
+...
+```
+
+In the compiled js, there're something like this will be injected:
+
+```js
+inject('.avcdd15645{color: "red"}')
+```
+
+Then the stylex runtime code will excute the ```inject``` function and add ```'.avcdd15645{color: "red"}'```
+to the stylesheet in the ```<head>``` section.
 
 #### Separate css into .css files
-*Describe how to setup stylex to separate css into reference links*
+
+In case you want to use stylex with ```mini-css-extract-plugin``` to seprate css
+into reference links, you can setup in your webpack config as bellow:
+
+```js
+...
+const ExtractTextPlugin = require('mini-css-extract-plugin');
+const StylexPlugin = require("@ladifire-opensource/stylex-webpack-plugin");
+
+...
+rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: STANDARD_EXCLUDE,
+        use: [
+          babelLoaderConfig,
+          {
+            loader: StylexPlugin.loader,
+            options: {
+              inject: false, // set false to ignore inject css to js
+            },
+          },
+        ],
+      },
+
+...
+
+plugins: [
+   new StylexPlugin(), 
+   new ExtractTextPlugin({
+      filename: '[name].[contentHash:11].css',
+      chunkFilename: '[name].[contentHash:11].css',
+    }),
+
+...
+```
 
 ### Babel
 
@@ -145,10 +232,68 @@ const s = {
 *Describe how to use stylex with typescript support*
 
 #### Pass stylex through props (Reactjs)
-*Describe about xstyle props*
+
+If you using Reactjs, consider to use **xstyle** props to pass some stylex class from
+parent to child. Let's see bellow example:
+
+```js
+import * as React from "react";
+import stylex from "@ladifire-opensource/stylex";
+import ChildComponent from "./path/to/child";
+
+type Style = 
+    | "root";
+
+const styles = stylex.create({
+    root: {
+        color: "red"
+    },
+});
+
+const Parent = () => {
+    return (
+        <ChildComponent
+            xstyle={styles.root}
+            //...otherProps
+        />
+    );
+}
+```
+
+The ```xstyle``` prop is a good method because it helps to combine style props under one namespace
+and doesn't populate the global orios environment and it looks similar to the goal of
+sx prop.
+
+Then in your child component you can use ```xstyle``` props as:
+
+```js
+import * as React from "react";
+
+import stylex from "@ladifire-opensource/stylex";
+
+const styles = stylex.create({
+  root: {
+    backgroundColor: "red"
+  },
+});
+
+const ChildComponent = (props) => {
+  const {
+    xstyle,
+  } = props;
+  
+  return (
+    <div className={stylex(styles.root, xstyle)}>
+      Child
+    </div>
+  );
+};
+```
 
 #### Theming with stylex
-*Describe how to theming with stylex*
+
+We're working to bring theming to stylex, through the package ```stylex-theme```. It's
+coming soon!
 
 ## Thanks to
 
@@ -165,7 +310,8 @@ Fork the `stylex` repository to your GitHub Account.
 
 Then, run: ```yarn install```
 
-[!!! under construction !!!]
+To see reactjs demo, cd to ```stylex-reactjs-examples``` and following steps in
+README.md to run Reactjs demo
 
 ### License
 
