@@ -143,3 +143,9 @@ declare namespace stylex {
   // vd: inject(".a55dalm2{background-color:red}")
   function inject(cssString: string): void;
 }
+
+type IsMediaString<T extends string> = T extends `@media ${infer V}` ? V : never;
+
+
+type Foo = IsMediaString<'foobar'>;
+type Bar = IsMediaString<'@media (max-width: 1234px)'>;
