@@ -10,11 +10,11 @@ import * as React from 'react';
 import stylex from '@ladifire-opensource/stylex';
 
 import {ChildComponent} from './ChildComponent';
-import {CometProgressRingIndeterminate} from './components-shared-version/ProgressRing';
 import {CometCard} from './components-shared-version/Card';
 
 import {DedupeExample} from './examples/dedupe';
 import {ReasponsiveExample} from './examples/responsive';
+import {KeyframesExample} from './examples/keyframes';
 
 import "./test.css";
 
@@ -63,7 +63,7 @@ export default () => {
         </div>
         <div>
           <h3>Keyframes examples</h3>
-          <CometProgressRingIndeterminate size={32} color="blue"/>
+          <KeyframesExample/>
         </div>
         <div>
           <h3>Responsive examples</h3>

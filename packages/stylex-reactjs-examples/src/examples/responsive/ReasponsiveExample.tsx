@@ -23,8 +23,7 @@ const styles = stylex.create({
 
     // pseudo DONE
     ":hover": {
-      color: "red",
-      boxSizing: 5,
+      color: "yellow",
     },
 
     // missing
