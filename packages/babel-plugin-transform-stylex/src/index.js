@@ -6,6 +6,7 @@
  */
 
 const handleBindings = require("./bindings");
+const maybeAssignStylexRequired = require("./utils/maybeAssignStylexRequired");
 
 // TODO: get it from package.json
 const NAME = "@ladifire-opensource/stylex";
@@ -16,8 +17,19 @@ module.exports = function plugin({inject = true}) {
   return {
     name: NAME,
     visitor: {
-      Program(path) {
+      Program(path, state) {
         root = path;
+
+        console.log("pathpathpath: ", path);
+
+        path.traverse(
+          {
+            VariableDeclarator(path, state) {
+              maybeAssignStylexRequired(path, state);
+            },
+          },
+          state
+        )
       },
       ImportDefaultSpecifier(path, state) {
         if (path.parent.source.value !== NAME) return;

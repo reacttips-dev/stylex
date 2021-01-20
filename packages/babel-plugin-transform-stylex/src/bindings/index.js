@@ -39,6 +39,7 @@ function handleBinding(node, opts, path) {
 }
 
 module.exports = function (bindings, opts, path) {
+  console.log("___bindings___", bindings);
   return bindings
     // sort to process keyframes first
     .sort(function(binding) {

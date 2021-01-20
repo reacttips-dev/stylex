@@ -98,7 +98,7 @@ declare namespace stylex {
   //     },
   //   )}
   // />
-  function dedupe(...styles: CssStyle[]): string;
+  function dedupe(...styles: CSSObject[]): string;
 
   // TODO 4: stylex.compose(...)
   // Hàm này merge các đối tượng stylex lại với nhau (kết quả là một đối tượng stylex duy nhất)
@@ -113,7 +113,7 @@ declare namespace stylex {
   //     }
   //   )};
   // />
-  function compose(...styles: CssStyle[]): CssStyle;
+  function compose(...styles: CSSObject[]): CSSObject;
 
   // TODO 5: stylex.keyframes(...)
   // Hàm này khai báo một keyframes animation name
@@ -136,7 +136,7 @@ declare namespace stylex {
   //     opacity: 0.25
   //   }
   // });
-  function keyframes(rules: CssStyle): string;
+  function keyframes(rules: CSSObject): string;
 
   // TODO 6: stylex.inject(...)
   // inject một chuỗi css vào compiled js

@@ -5,6 +5,7 @@
     "baseUrl": ".",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "esModuleInterop": true,
     "sourceMap": true,
     "lib": [
       "es2015",

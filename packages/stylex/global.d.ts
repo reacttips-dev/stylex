@@ -137,7 +137,7 @@ export type SimplePseudos =
 export type Pseudos = AdvancedPseudos | SimplePseudos;
 
 // TODO: missing media query
-export type CSSPropertiesWithNestedPseudo<T extends string> = {
+export type CSSPropertiesWithNestedPseudo<T extends string | number> = {
   [key in T]: CSSProperties
 } | {
   [key in T]: {
