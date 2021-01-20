@@ -12,10 +12,26 @@
     "url": "https://github.com/ladifire-opensource/stylex"
   },
   "dependencies": {
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@types/node": "^7.0.22"
   },
   "devDependencies": {
+    "angular2-template-loader": "^0.6.2",
+    "awesome-typescript-loader": "^5.2.1",
+    "core-js": "^2.4.1",
+    "html-webpack-plugin": "^4.5.1",
+    "raw-loader": "^0.5.1",
+    "rxjs": "^5.0.1",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "^3.3.1",
+    "zone.js": "^0.11.3"
   },
   "scripts": {
-    "run": "webpack --progress --watch"
+    "build": "webpack",
+    "start": "webpack-dev-server --content-base dist/"
   }
 }
