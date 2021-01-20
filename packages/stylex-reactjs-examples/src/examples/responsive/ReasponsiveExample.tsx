@@ -21,6 +21,13 @@ const styles = stylex.create({
     justifyContent: "center",
     marginTop: 12,
 
+    // pseudo DONE
+    ":hover": {
+      color: "red",
+      boxSizing: 5,
+    },
+
+    // missing
     "@media (max-width: 899px)": {
       width: "100%",
     },
