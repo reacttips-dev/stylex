@@ -8,10 +8,11 @@
 const chalk = require("chalk");
 const t = require('@babel/types');
 
+const injectStyles = require("../utils/injectStyles");
 const stylesUtils = require("../utils/styles");
 const keyframesUtils = require("../utils/keyframes");
 
-module.exports = function handleKeyframesBindings(identifier) {
+module.exports = function handleKeyframesBindings(identifier, opts, path) {
   const callExpr = identifier.parentPath.parentPath;
   const objExpr = callExpr.get('arguments.0');
   let rules;
@@ -23,6 +24,11 @@ module.exports = function handleKeyframesBindings(identifier) {
     callExpr.replaceWith(t.stringLiteral(name));
   } catch (e) {
     console.log(chalk.red(`\nAn error occur: ${e}`));
+  }
+
+  // only inject this to js, if there's an option {inject: true}
+  if (opts && opts.inject) {
+    injectStyles([declaration], path);
   }
 
   return declaration;
