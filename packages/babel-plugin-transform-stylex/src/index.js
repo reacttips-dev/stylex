@@ -20,8 +20,6 @@ module.exports = function plugin({inject = true}) {
       Program(path, state) {
         root = path;
 
-        console.log("pathpathpath: ", path);
-
         path.traverse(
           {
             VariableDeclarator(path, state) {
