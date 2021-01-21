@@ -26,13 +26,7 @@ function doDedupe(path, opts, root) {
     replaceDeclaration(path, classes);
   }
 
-  const _styles = stylesUtils.generateStylesForDedupe(styles);
-  // only inject this to js, if there's an option {inject: true}
-  if (opts && opts.inject) {
-    injectStyles(_styles, path);
-  }
-
-  return _styles;
+  return stylesUtils.generateStylesForDedupe(styles);
 }
 
 module.exports = function handleDedupeBindings(identifier, opts, path) {

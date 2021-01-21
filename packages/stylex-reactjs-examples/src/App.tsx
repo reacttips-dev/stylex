@@ -11,10 +11,12 @@ import stylex from '@ladifire-opensource/stylex';
 
 import {ChildComponent} from './ChildComponent';
 import {CometCard} from './components-shared-version/Card';
+import {Text} from './components-shared-version/Text';
 
 import {DedupeExample} from './examples/dedupe';
 import {ResponsiveExample} from './examples/responsive';
 import {KeyframesExample} from './examples/keyframes';
+import {ThemingExamples} from './examples/theming';
 
 import "./test.css";
 
@@ -51,23 +53,45 @@ export default () => {
         xstyle={styles.card}
       >
         <h1>
-          Stylex Reactjs examples
+          <Text>
+            Stylex Reactjs examples
+          </Text>
         </h1>
         <hr/>
         <div>
           <ChildComponent />
         </div>
         <div>
-          <h3>Dedupe examples</h3>
+          <h3>
+            <Text>
+              Dedupe examples
+            </Text>
+          </h3>
           <DedupeExample/>
         </div>
         <div>
-          <h3>Keyframes examples</h3>
+          <h3>
+            <Text>
+              Keyframes examples
+            </Text>
+          </h3>
           <KeyframesExample/>
         </div>
         <div>
-          <h3>Responsive examples</h3>
+          <h3>
+            <Text>
+              Responsive examples
+            </Text>
+          </h3>
           <ResponsiveExample/>
+        </div>
+        <div>
+          <h3>
+            <Text>
+              Theming examples
+            </Text>
+          </h3>
+          <ThemingExamples/>
         </div>
       </CometCard>
     </div>

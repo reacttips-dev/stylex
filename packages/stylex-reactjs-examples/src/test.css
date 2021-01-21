@@ -1,7 +1,3 @@
-.test {
-  color: red
-}
-
 body {
-  background-color: #E4E6EB;
+  background-color: var(--web-wash);
 }

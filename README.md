@@ -457,8 +457,64 @@ const ChildComponent = (props) => {
 
 #### Theming with stylex
 
-We're working to bring theming to stylex, through the package ```stylex-theme```. It's
-coming soon!
+Stylex support multiple theming. A "theme" is declared by given it an object of
+variables, like this:
+
+```js
+const defaultThemeVariables = {
+    "primary-icon": "rgb(15, 20, 25)",
+    "primary-text": "rgb(15, 20, 25)",
+    "primary-text-on-media": "#FFFFFF",
+};
+```
+
+There're two theme objects in stylex: **rootTheme** and **customTheme**. A **rootTheme**.
+To set **rootTheme**:
+
+```js
+import CometStyleXSheet from "@ladifire-opensource/stylex-theme";
+
+...
+
+CometStyleXSheet.rootStyleSheet.setRootTheme(defaultThemeVariables);
+```
+
+and **customTheme**:
+
+```js
+CometStyleXSheet.rootStyleSheet.setCustomTheme(customThemeVariables);
+```
+
+To change theme:
+
+```js
+CometStyleXSheet.rootStyleSheet.toggleCustomTheme(!isCustomThemeActive);
+```
+
+This is example for React user:
+
+```js
+import CometStyleXSheet from "@ladifire-opensource/stylex-theme";
+
+import {themeDataBase} from './themeDataBase';
+import {themeDataCustom} from './themeDataCustom';
+
+export const ThemingExamples = () => {
+  React.useEffect(() => {
+    CometStyleXSheet.rootStyleSheet.setRootTheme(themeDataBase);
+    CometStyleXSheet.rootStyleSheet.setCustomTheme(themeDataCustom);
+  }, []);
+
+  const [isDark, setIsDark] = React.useState<boolean>(() => false);
+  const toggleIsDark = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const target = event.target;
+    setIsDark(target.checked);
+    CometStyleXSheet.rootStyleSheet.toggleCustomTheme(!isDark);
+  }, [isDark, setIsDark]);
+    
+  // ...
+}
+```
 
 ## Thanks to
 

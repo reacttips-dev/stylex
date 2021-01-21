@@ -31,12 +31,15 @@ const styles = stylex.create({
       width: "100%",
     },
   },
+  tip: {
+    color: "var(--secondary-text)"
+  },
 });
 
 export const ResponsiveExample = () => {
   return (
     <div>
-      <strong>Inspect, resize browser to see me responsive!</strong>
+      <strong className={stylex(styles.tip)}>Inspect, resize browser to see me responsive!</strong>
       <div className={stylex(styles.root)}>
         ReasponsiveExample
       </div>

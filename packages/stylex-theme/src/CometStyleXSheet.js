@@ -12,19 +12,21 @@ class _CometStyleXSheet extends StylexSheet {
     super(props);
 
     this.rootTheme = props.rootTheme || {};
-    this.rootDarkTheme = props.rootDarkTheme || {};
+    this.customTheme = props.customTheme || {};
 
     this.injectThemeVariables = function(data, themeKey = "root") {
       if (themeKey === "root") {
         this.rootTheme = Object.assign(this.rootTheme, data);
       } else {
-
+        this.customTheme = Object.assign(this.customTheme, data);
       }
-    }
+    };
   }
 }
 
+const _rootStyleSheet = new _CometStyleXSheet();
+
 module.exports = {
   CometStyleXSheet: _CometStyleXSheet,
-  rootStyleSheet: new _CometStyleXSheet(),
+  rootStyleSheet: _rootStyleSheet,
 };

@@ -19,25 +19,25 @@ import {BaseView} from '../BaseView';
 
 const i = stylex.create({
   "base-wash": {
-    backgroundColor: "#E4E6EB"
+    backgroundColor: "var(--wash)"
   },
   "dark-wash": {
-    backgroundColor: "rgba(0, 0, 0, 0.5)"
+    backgroundColor: "var(--shadow-5)"
   },
   error: {
-    backgroundColor: "rgb(224, 36, 94)"
+    backgroundColor: "var(--negative)"
   },
   highlight: {
-    backgroundColor: "#0089ff"
+    backgroundColor: "var(--accent)"
   },
   "light-wash": {
-    backgroundColor: "#F0F2F5"
+    backgroundColor: "var(--web-wash)"
   },
   transparent: {
     backgroundColor: "transparent"
   },
   white: {
-    backgroundColor: "#FFFFFF"
+    backgroundColor: "var(--surface-background)"
   }
 });
 

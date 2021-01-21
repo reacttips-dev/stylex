@@ -19,6 +19,7 @@ const styles = stylex.create({
     paddingLeft: 6,
     paddingRight: 6,
     paddingBottom: 6,
+    color: "var(--secondary-text)",
 
     ":before": {
       content: '"classes"',
@@ -26,6 +27,7 @@ const styles = stylex.create({
       top: 6,
       left: 6,
       fontWeight: 700,
+      color: "var(--secondary-text)"
     },
   },
 });
