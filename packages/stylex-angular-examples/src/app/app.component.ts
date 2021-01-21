@@ -16,7 +16,7 @@ declare var module: {
 export class AppComponent {
   title: String = "App Works !";
 
-  ngOnInit() {
+  constructor() {
     const styles = stylex.create({
       root: {
         backgroundColor: "red"
@@ -24,5 +24,9 @@ export class AppComponent {
     });
 
     console.log("___styles", styles);
+  }
+
+  ngOnInit() {
+
   }
 }
