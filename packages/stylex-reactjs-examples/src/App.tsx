@@ -13,7 +13,7 @@ import {ChildComponent} from './ChildComponent';
 import {CometCard} from './components-shared-version/Card';
 
 import {DedupeExample} from './examples/dedupe';
-import {ReasponsiveExample} from './examples/responsive';
+import {ResponsiveExample} from './examples/responsive';
 import {KeyframesExample} from './examples/keyframes';
 
 import "./test.css";
@@ -67,7 +67,7 @@ export default () => {
         </div>
         <div>
           <h3>Responsive examples</h3>
-          <ReasponsiveExample/>
+          <ResponsiveExample/>
         </div>
       </CometCard>
     </div>

@@ -5,4 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export * from './ReasponsiveExample';
+export * from './ResponsiveExample';

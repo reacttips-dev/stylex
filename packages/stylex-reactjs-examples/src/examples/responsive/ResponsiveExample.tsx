@@ -33,7 +33,7 @@ const styles = stylex.create({
   },
 });
 
-export const ReasponsiveExample = () => {
+export const ResponsiveExample = () => {
   return (
     <div>
       <strong>Inspect, resize browser to see me responsive!</strong>
