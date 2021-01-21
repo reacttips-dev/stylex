@@ -79,7 +79,7 @@ let appConfig = {
           {
             loader: StylexPlugin.loader,
             options: {
-              inject: true,
+              inject: false,
             },
           },
         ],
