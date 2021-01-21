@@ -27,7 +27,10 @@ function doDedupe(path, opts, root) {
   }
 
   const _styles = stylesUtils.generateStylesForDedupe(styles);
-  injectStyles(_styles, root);
+  // only inject this to js, if there's an option {inject: true}
+  if (opts && opts.inject) {
+    injectStyles(_styles, path);
+  }
 
   return _styles;
 }

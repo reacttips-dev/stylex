@@ -44,6 +44,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new StylexPlugin(),
     new htmlWebpackPlugin({
       template: './src/index.html'
     }),
@@ -52,7 +53,6 @@ module.exports = {
       root('./src'),
       {}
     ),
-    new StylexPlugin(),
   ],
   devServer: {
     historyApiFallback: true

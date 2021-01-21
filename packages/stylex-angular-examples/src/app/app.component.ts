@@ -6,6 +6,12 @@ declare var module: {
   id: string;
 };
 
+const styles = stylex.create({
+  root: {
+    backgroundColor: "red"
+  }
+});
+
 @Component({
   // moduleId: module.id,
   selector: 'app-root',
@@ -17,11 +23,6 @@ export class AppComponent {
   title: String = "App Works !";
 
   constructor() {
-    const styles = stylex.create({
-      root: {
-        backgroundColor: "red"
-      }
-    });
 
     console.log("___styles", styles);
   }

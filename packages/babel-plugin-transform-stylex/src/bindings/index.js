@@ -27,11 +27,11 @@ function handleBinding(node, opts, path) {
   }
 
   if (isPropertyCall(node, 'keyframes')) {
-    return handleKeyframesBindings(node);
+    return handleKeyframesBindings(node, opts, path);
   }
 
   if (isPropertyCall(node, 'compose')) {
-    return handleComposeBindings(node);
+    return handleComposeBindings(node, opts, path);
   }
 
   // TODO: throw an error if there're nothing match

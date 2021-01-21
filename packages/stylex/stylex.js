@@ -137,7 +137,7 @@ stylex.keyframes = function (a) {
  * Inject compiled styles to css stylesheet if need (if it's never injected before)
  * */
 stylex.inject = function (a, c, d = null) {
-  d === void 0 && (d = null), !g && a.indexOf("@keyframes") === -1 && (g = !0), CometStyleXSheet.rootStyleSheet.insert(a, c, d)
+  d === void 0 && (d = null), !g && (g = !0), CometStyleXSheet.rootStyleSheet.insert(a, c, d)
 };
 
 /**

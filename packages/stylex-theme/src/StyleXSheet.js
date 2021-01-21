@@ -32,7 +32,7 @@ function k() {
 }
 
 function l() {
-  return window.CSS != null && window.CSS.supports != null && window.CSS.supports("--fake-var:0")
+  return typeof window !== "undefined" && window.CSS != null && window.CSS.supports != null && window.CSS.supports("--fake-var:0")
 }
 const m = /var\(--(.*?)\)/g;
 

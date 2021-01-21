@@ -23,7 +23,7 @@ async function stylexLoader(input, inputSourceMap) {
   this.async();
 
   const { code, map, metadata } = await babel.transformAsync(input, {
-    plugins: [[babelPlugin, options]],
+    plugins: [[babelPlugin, Object.assign({}, options, {inject})]],
     inputSourceMap: inputSourceMap || true,
     sourceFileName: this.resourcePath,
     filename: path.basename(this.resourcePath),
@@ -33,7 +33,7 @@ async function stylexLoader(input, inputSourceMap) {
   try {
     if (metadata.stylex === undefined) {
       this.callback(null, input, inputSourceMap);
-    } else if (!inject) {
+    } else if (inject) {
       this.callback(null, code, map);
     } else {
       const cssPath = loaderUtils.interpolateName(
