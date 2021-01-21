@@ -468,7 +468,7 @@ const defaultThemeVariables = {
 };
 ```
 
-There're two theme objects in stylex: **rootTheme** and **customTheme**. A **rootTheme**.
+There're two theme objects in stylex: **rootTheme** and **customTheme**.
 To set **rootTheme**:
 
 ```js
@@ -491,7 +491,7 @@ To change theme:
 CometStyleXSheet.rootStyleSheet.toggleCustomTheme(!isCustomThemeActive);
 ```
 
-This is example for React user:
+This is example for React users:
 
 ```js
 import CometStyleXSheet from "@ladifire-opensource/stylex-theme";

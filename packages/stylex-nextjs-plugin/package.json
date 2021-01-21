@@ -1,6 +1,6 @@
 {
   "name": "@ladifire-opensource/stylex-nextjs-plugin",
-  "version": "0.0.1-beta1",
+  "version": "0.0.1-beta.0",
   "description": "Transform Stylex code",
   "license": "MIT",
   "publishConfig": {
@@ -18,6 +18,6 @@
     "url": "https://github.com/ladifire-opensource/stylex"
   },
   "dependencies": {
-    "@ladifire-opensource/stylex-webpack-plugin": "0.0.1-beta1"
+    "@ladifire-opensource/stylex-webpack-plugin": "0.0.1-beta.0"
   }
 }

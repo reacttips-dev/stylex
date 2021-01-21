@@ -1,6 +1,6 @@
 {
   "name": "@ladifire-opensource/stylex-theme",
-  "version": "0.0.1-beta1",
+  "version": "0.0.1-beta.0",
   "description": "Use CSS in JS with atomic support",
   "license": "MIT",
   "publishConfig": {

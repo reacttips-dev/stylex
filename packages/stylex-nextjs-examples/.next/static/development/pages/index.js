@@ -40,36 +40,23 @@ class _CometStyleXSheet extends StylexSheet {
     super(props);
 
     this.rootTheme = props.rootTheme || {};
-    this.rootDarkTheme = props.rootDarkTheme || {};
     this.customTheme = props.customTheme || {};
 
     this.injectThemeVariables = function(data, themeKey = "root") {
       if (themeKey === "root") {
         this.rootTheme = Object.assign(this.rootTheme, data);
-      } else if (themeKey === "dark") {
-        this.rootDarkTheme = Object.assign(this.rootDarkTheme, data);
       } else {
         this.customTheme = Object.assign(this.customTheme, data);
       }
     };
-
-    // this.injectThemeVariables({
-    //   "button-background": "#68aa3a",
-    // }, "root");
-    //
-    // this.injectThemeVariables({
-    //   "button-background": "#cc775e",
-    // }, "mytheme");
-    //
-    // this.__injectCustomThemeForTesting("mytheme", {
-    //   "button-background": "#cc775e",
-    // })
   }
 }
 
+const _rootStyleSheet = new _CometStyleXSheet();
+
 module.exports = {
   CometStyleXSheet: _CometStyleXSheet,
-  rootStyleSheet: new _CometStyleXSheet(),
+  rootStyleSheet: _rootStyleSheet,
 };
 
 
@@ -91,8 +78,8 @@ module.exports = {
 
 const ExecutionEnvironment = __webpack_require__(/*! ./utils */ "../../node_modules/@ladifire-opensource/stylex-theme/src/utils.js");
 
-const _LIGHT_MODE_CLASS_NAME = "light";
-const _DARK_MODE_CLASS_NAME = "dark";
+const _DEFAULT_THEME_CLASS_NAME = "__base";
+const _CUSTOM_THEME_CLASS_NAME = "__custom";
 
 function buildThemeVariables(themeKey, themeObj) {
   const variables = [];
@@ -119,6 +106,10 @@ function isSupportCSS() {
   return typeof window !== "undefined" && window.CSS != null && window.CSS.supports != null && window.CSS.supports("--fake-var:0")
 }
 
+function toggleClassName(doc, className, add) {
+  add ? doc.classList.add(className) : doc.classList.remove(className)
+}
+
 const VARIABLE_REGEX = /var\(--(.*?)\)/g;
 
 class StyleXSheet {
@@ -130,11 +121,21 @@ class StyleXSheet {
     this.ruleForPriority = new Map();
     this.rules = [];
     this.rootTheme = props.rootTheme;
-    this.rootDarkTheme = props.rootDarkTheme;
+    this.customTheme = props.customTheme;
     this.isSlow = (_isSlow = props.isSlow) != null ? _isSlow : typeof location === "object" && typeof location.search === "string" ? location.search.includes("stylex-slow") : false;
     this.supportsVariables = (_supportVariables = props.supportsVariables) != null ? _supportVariables : isSupportCSS();
     this._isRTL = false; // TODO: need RTL from runtime
     this.externalRules = new Set()
+  }
+
+  setRootTheme(theme) {
+    this.rootTheme = theme;
+    this.injectTheme();
+  }
+
+  setCustomTheme(theme) {
+    this.customTheme = theme;
+    this.injectTheme();
   }
 
   getVariableMatch() {
@@ -174,9 +175,32 @@ class StyleXSheet {
     this.injectTheme()
   }
 
+  injectVariables(data, themeKey = "root") {
+    if (themeKey === "root") {
+      this.rootTheme = Object.assign(this.rootTheme, data);
+    } else {
+      this.customTheme = Object.assign(this.customTheme, data);
+    }
+
+    this.injectTheme()
+  }
+
+  toggleDocumentClassName(className, add) {
+    if (!ExecutionEnvironment.canUseDOM) {
+      return
+    }
+
+    const doc = window.document.documentElement;
+    toggleClassName(doc, className, add)
+  }
+
+  toggleCustomTheme(active) {
+    return this.toggleDocumentClassName("__custom", active)
+  }
+
   injectTheme() {
-    this.rootTheme != null && this.insert(buildThemeVariables(":root, ." + _LIGHT_MODE_CLASS_NAME, this.rootTheme), 0);
-    this.rootDarkTheme != null && this.insert(buildThemeVariables("." + _DARK_MODE_CLASS_NAME + ":root, ." + _DARK_MODE_CLASS_NAME, this.rootDarkTheme), 0)
+    this.rootTheme != null && this.insert(buildThemeVariables(":root, ." + _DEFAULT_THEME_CLASS_NAME, this.rootTheme), 0);
+    this.customTheme != null && this.insert(buildThemeVariables("." + _CUSTOM_THEME_CLASS_NAME + ":root, ." + _CUSTOM_THEME_CLASS_NAME, this.customTheme), 0)
   }
 
   __injectCustomThemeForTesting(themeKey, themeObject) {
