@@ -1,6 +1,7 @@
 {
   "name": "@ladifire-opensource/stylex-nextjs-examples",
   "version": "0.0.1-beta1",
+  "private": true,
   "description": "Stylex examples for Nextjs",
   "license": "MIT",
   "publishConfig": {
