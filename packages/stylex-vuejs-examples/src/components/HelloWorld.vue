@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-      <button>Test</button>
+      <button :class="buttonClasses">A Stylex button!</button>
 
     <h1>{{ msg }}</h1>
     <p>
@@ -32,11 +32,15 @@
 </template>
 
 <script>
+
 import stylex from '@ladifire-opensource/stylex'
 
 const styles = stylex.create({
     button: {
         borderRadius: 8,
+        padding: 16,
+        backgroundColor: "#1DA1F2",
+        color: "#fff"
     },
 });
 
@@ -44,13 +48,12 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  },/*
-    data () {
-        return { styles }
-    },*/
-    created () {
-        console.log(styles)
+  },
+  computed: {
+    buttonClasses() {
+      return stylex(styles.button);
     }
+  }
 }
 </script>
 

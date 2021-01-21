@@ -16,7 +16,7 @@ const virtualModules = require('./virtualModules');
 async function stylexLoader(input, inputSourceMap) {
   const {
     inlineLoader = '',
-    inject = false,
+    inject = true,
     ...options
   } = loaderUtils.getOptions(this) || {};
 
