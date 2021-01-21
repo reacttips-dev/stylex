@@ -26,6 +26,139 @@ need to install a webpack plugin
 yarn add @ladifire-opensource/stylex-webpack-plugin
 ```
 
+If you're using ```Nextjs```:
+
+```bash
+yarn add @ladifire-opensource/stylex-nextjs-plugin
+```
+
+### Setup with Webpack
+
+First, we need import ```stylex-webpack-plugin```:
+
+```js
+const StylexPlugin = require("@ladifire-opensource/stylex-webpack-plugin");
+```
+
+Then, in ```plugins``` section, add this:
+
+```js
+ plugins: [
+    //...other plugins
+
+    new StylexPlugin(),
+```
+
+Last thing, add this in ```rules``` section:
+
+```js
+rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        use: [
+          // ...keeps your other loaders here
+
+          // and stylex-loader goes here
+          {
+            loader: StylexPlugin.loader,
+            options: {
+              inject: false,
+            },
+          },
+        ],
+      },
+```
+
+### Setup with Babel
+
+This is example of Babel config with stylex:
+
+```js
+/**
+ * Copyright (c) Ladifire, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/*eslint-env node*/
+module.exports = {
+  presets: [
+    '@babel/react',
+    '@babel/env',
+    '@babel/preset-typescript',
+  ],
+  plugins: [
+    '@babel/plugin-syntax-dynamic-import',
+    '@babel/plugin-proposal-object-rest-spread',
+    '@babel/plugin-transform-runtime',
+    ["@babel/plugin-transform-modules-commonjs"],
+    [
+      "@babel/plugin-transform-spread",
+      {
+        "loose": true
+      }
+    ],
+    ['@babel/plugin-proposal-decorators', {legacy: true}],
+    ['@babel/plugin-proposal-class-properties', {loose: true}],
+    [
+      "@ladifire-opensource/babel-plugin-transform-stylex",
+      {
+        "inject": true, // will inject compiled css to stylesheet in head
+      }
+    ]
+  ],
+};
+```
+
+### Setup with Nextjs
+
+Firt thing, you need add ```next-transpile-modules``` to your project.
+
+Just run:
+
+```bash
+yarn add -D next-transpile-modules
+```
+
+Then in ```next.config.js```, add these lines:
+
+```js
+const withTM = require('next-transpile-modules')(['stylex'], { unstable_webpack5: true });
+const withStylex = require('@ladifire-opensource/stylex-nextjs-plugin');
+
+module.exports = withStylex({
+  inject: true, // for nextjs, we must inject style to head
+})(withTM());
+```
+
+### Setup with Vue
+
+Add these lines in ```vue.config.js```:
+
+```js
+const StylexPlugin = require('@ladifire-opensource/stylex-webpack-plugin');
+
+module.exports = {
+    configureWebpack: {
+        module: {
+            rules: [
+                {
+                    test: /\.(tsx|ts|js|mjs|jsx)$/,
+                    use: StylexPlugin.loader,
+                },
+            ],
+        },
+        plugins: [
+          new StylexPlugin(),
+        ],
+    },
+};
+```
+
+### Setup with Angular
+*Under construction!!!*
+
 ## How to use stylex?
 
 There're some methods you can you with stylex:
