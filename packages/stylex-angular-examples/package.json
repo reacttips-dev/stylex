@@ -1,7 +1,7 @@
 {
   "name": "@ladifire-opensource/stylex-angular-examples",
   "private": true,
-  "version": "0.0.1-beta1",
+  "version": "0.0.1-beta.0",
   "description": "Stylex examples for Angular",
   "license": "MIT",
   "publishConfig": {

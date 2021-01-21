@@ -131,7 +131,7 @@ function getVersions(existingPackages) {
           }
         } else {
           if (status === 'released') {
-            newVersion = '3.0.0';
+            newVersion = '1.0.0';
           } else {
             newVersion = semver.inc(pkg.version, 'prerelease', status);
           }
@@ -142,7 +142,6 @@ function getVersions(existingPackages) {
     }
   } else {
     for (let [name, {location, status}] of releasedPackages) {
-      console.log("___status", status);
       let filePath = location + '/package.json';
       let pkg = JSON.parse(fs.readFileSync(filePath, 'utf8'));
       let parsed = semver.parse(pkg.version);

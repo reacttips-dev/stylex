@@ -1,6 +1,6 @@
 {
   "name": "@ladifire-opensource/stylex-vuejs-examples",
-  "version": "0.0.1",
+  "version": "0.0.1-beta.0",
   "description": "Stylex examples for Vue",
   "private": true,
   "scripts": {

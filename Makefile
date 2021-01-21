@@ -8,3 +8,6 @@ run_react_demo: start_reactjs_server
 
 test:
 	yarn jest
+
+publish:
+	lerna publish from-package --yes

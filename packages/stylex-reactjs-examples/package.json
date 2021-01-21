@@ -1,6 +1,6 @@
 {
   "name": "@ladifire-opensource/stylex-reactjs-examples",
-  "version": "0.0.1-beta1",
+  "version": "0.0.1-beta.0",
   "private": true,
   "description": "Stylex examples for Reactjs",
   "license": "MIT",
@@ -13,9 +13,6 @@
     "url": "https://github.com/ladifire-opensource/stylex"
   },
   "dependencies": {
-    "@ladifire-opensource/babel-plugin-transform-stylex": "0.0.1-beta1",
-    "@ladifire-opensource/stylex": "0.0.1-beta1",
-    "@ladifire-opensource/stylex-webpack-plugin": "0.0.1-beta1",
     "app-root-path": "^3.0.0",
     "autoprefixer": "^10.2.1",
     "body-parser": "^1.19.0",
