@@ -706,7 +706,7 @@ _ladifire_opensource_stylex__WEBPACK_IMPORTED_MODULE_1___default.a.inject(".a54i
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!*********************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fhome%2Fcong%2FGithub%2Fstylex%2Fpackages%2Fstylex-nextjs-examples%2Fpages%2Findex.tsx ***!
   \*********************************************************************************************************************************************************/
@@ -729,5 +729,5 @@ module.exports = dll_6a8b4ec29c638404fa17;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
