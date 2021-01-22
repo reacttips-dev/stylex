@@ -17,12 +17,24 @@ export interface CSSProperties extends CSS.Properties<number | string> {
    */
 }
 
+interface MediaQuery {
+  /*
+   * Allow  pseudo selectors and media queries
+   *
+   * Typescipt does not support regex-validated string type (yet)
+   * There is a proposal on github and when this feature is implemented,
+   * we can update this.
+   */
+  [key: string]: unknown | CSSProperties;
+}
+
 // TODO: missing media query
 export type CSSPropertiesWithNestedPseudo<T extends string | number> = {
   [key in T]: CSSObject;
 };
 
 export type CSSObject = CSSProperties &
+  MediaQuery &
   {
     [key in CSS.Pseudos]?: CSSProperties;
   };
