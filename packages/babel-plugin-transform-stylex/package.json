@@ -1,6 +1,6 @@
 {
   "name": "@ladifire-opensource/babel-plugin-transform-stylex",
-  "version": "0.0.1-beta.3.0",
+  "version": "0.0.1-beta.4.0",
   "description": "Transform Stylex code",
   "license": "MIT",
   "publishConfig": {
@@ -15,5 +15,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ladifire-opensource/stylex"
+  },
+  "devDependencies": {
+    "@babel/template": "^7.10.4",
+    "@babel/types": "^7.8.3",
+    "chalk": "^3.0.0",
+    "known-css-properties": "^0.20.0"
   }
 }

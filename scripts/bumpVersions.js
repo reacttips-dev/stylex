@@ -21,11 +21,11 @@ let levels = {
 
 // Packages to release
 let publicPackages = {
-  "@ladifire-opensource/babel-plugin-transform-stylex": "beta.3",
-  "@ladifire-opensource/stylex": "beta.3",
-  "@ladifire-opensource/stylex-theme": "beta.3",
-  "@ladifire-opensource/stylex-webpack-plugin": "beta.3",
-  "@ladifire-opensource/stylex-nextjs-plugin": "beta.3",
+  "@ladifire-opensource/babel-plugin-transform-stylex": "beta.4",
+  "@ladifire-opensource/stylex": "beta.4",
+  "@ladifire-opensource/stylex-theme": "beta.4",
+  "@ladifire-opensource/stylex-webpack-plugin": "beta.4",
+  "@ladifire-opensource/stylex-nextjs-plugin": "beta.4",
 };
 
 // Packages never to release

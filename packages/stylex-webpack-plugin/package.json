@@ -1,6 +1,6 @@
 {
   "name": "@ladifire-opensource/stylex-webpack-plugin",
-  "version": "0.0.1-beta.3.0",
+  "version": "0.0.1-beta.4.0",
   "description": "Transform Stylex code",
   "license": "MIT",
   "publishConfig": {
@@ -18,7 +18,16 @@
     "type": "git",
     "url": "https://github.com/ladifire-opensource/stylex"
   },
-  "dependencies": {
-    "@ladifire-opensource/babel-plugin-transform-stylex": "0.0.1-beta.3.0"
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@ladifire-opensource/babel-plugin-transform-stylex": "0.0.1-beta.3.0",
+    "@types/webpack-sources": "^2.1.0",
+    "chalk": "^3.0.0",
+    "loader-utils": "^2.0.0",
+    "postcss": "^7.0.32",
+    "postcss-discard-duplicates": "^4.0.2",
+    "postcss-selector-parser": "^6.0.2",
+    "sort-css-media-queries": "^1.5.2",
+    "webpack-virtual-modules": "^0.4.2"
   }
 }
