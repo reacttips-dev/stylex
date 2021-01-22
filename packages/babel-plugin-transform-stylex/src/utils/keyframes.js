@@ -9,16 +9,16 @@ const normalizeValue = require("./normalizeValue");
 const getClass = require("./classNames").getClass;
 
 function normalizeTime(time) {
-  if (time === 'from') return '0%';
-  if (time === 'to') return '100%';
+  if (time === "from") {return "0%";}
+  if (time === "to") {return "100%";}
   return time;
 }
 
 function stringifyKeyframes(rules) {
-  let str = '';
+  let str = "";
 
   for (const time in rules) {
-    if (!Object.keys(rules[time]).length) continue;
+    if (!Object.keys(rules[time]).length) {continue;}
 
     str += `${normalizeTime(time)}{`;
 
@@ -27,14 +27,14 @@ function stringifyKeyframes(rules) {
 
       for (const prop of expandProperty(key)) {
         // Longhand takes precedent
-        if (prop in rules[time] && prop !== key) continue;
+        if (prop in rules[time] && prop !== key) {continue;}
 
         str += `${camelToHyphen(prop)}:${normalizeValue(prop, value)};`;
       }
     }
 
     // Remove last semicolon
-    str = str.slice(0, -1) + '}';
+    str = str.slice(0, -1) + "}";
   }
 
   return str;
@@ -49,10 +49,10 @@ function getKeyframes(rules) {
     console.log(chalk.red(`\nAn error occur: ${e}`));
   }
   const declaration = `@keyframes ${name}{${rulesString}}`;
-  return { name, declaration };
+  return {name, declaration};
 }
 
 module.exports = {
   getKeyframes,
-  stringifyKeyframes,
+  stringifyKeyframes
 };

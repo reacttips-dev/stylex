@@ -1,13 +1,13 @@
 // license by johanholmerin
-const StylexPlugin = require('@ladifire-opensource/stylex-webpack-plugin');
+const StylexPlugin = require("@ladifire-opensource/stylex-webpack-plugin");
 const {
   getClientStyleLoader
-} = require('next/dist/build/webpack/config/blocks/css/loaders/client');
-const {stringifyCssRequest} = require('./utils');
+} = require("next/dist/build/webpack/config/blocks/css/loaders/client");
+const {stringifyCssRequest} = require("./utils");
 
 function getInlineLoader(options) {
   const outputLoaders = [
-    { loader: 'css-loader' }
+    {loader: "css-loader"}
   ];
 
   if (!options.isServer) {
@@ -23,35 +23,33 @@ function getInlineLoader(options) {
   return stringifyCssRequest(outputLoaders);
 }
 
-module.exports = (pluginOptions = {}) => (nextConfig = {}) => {
-  return {
-    ...nextConfig,
-    webpack(config, options) {
-      const outputCSS = !options.isServer;
+module.exports = (pluginOptions = {}) => (nextConfig = {}) => ({
+  ...nextConfig,
+  webpack(config, options) {
+    const outputCSS = !options.isServer;
 
-      config.module.rules.unshift({
-        test: /\.(tsx|ts|js|mjs|jsx)$/,
-        use: [
-          {
-            loader: StylexPlugin.loader,
-            options: {
-              inlineLoader: getInlineLoader(options),
-              outputCSS,
-              ...pluginOptions
-            }
+    config.module.rules.unshift({
+      test: /\.(tsx|ts|js|mjs|jsx)$/,
+      use: [
+        {
+          loader: StylexPlugin.loader,
+          options: {
+            inlineLoader: getInlineLoader(options),
+            outputCSS,
+            ...pluginOptions
           }
-        ]
-      });
+        }
+      ]
+    });
 
-      if (outputCSS) {
-        config.plugins.push(new StylexPlugin());
-      }
-
-      if (typeof nextConfig.webpack === 'function') {
-        return nextConfig.webpack(config, options);
-      }
-
-      return config;
+    if (outputCSS) {
+      config.plugins.push(new StylexPlugin());
     }
-  };
-};
+
+    if (typeof nextConfig.webpack === "function") {
+      return nextConfig.webpack(config, options);
+    }
+
+    return config;
+  }
+});

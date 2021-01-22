@@ -1,5 +1,5 @@
 /**
- * Copyright (c) Ladifire, Inc. and its affiliates.
+ * Copyright (c) Ladifire, Inc. And its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,7 +21,7 @@ function expandProperties(obj) {
       expanded[key] = expandProperties(value);
     } else {
       for (const prop of expandProperty(key)) {
-        if (prop in obj && prop !== key) continue;
+        if (prop in obj && prop !== key) {continue;}
 
         expanded[prop] = value;
       }
@@ -48,5 +48,5 @@ module.exports = {
   expandProperties,
   getStyles,
   generateStyles,
-  generateStylesForDedupe,
+  generateStylesForDedupe
 };

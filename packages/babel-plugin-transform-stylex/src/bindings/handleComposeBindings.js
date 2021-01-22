@@ -7,5 +7,5 @@
 
 // TODO: not-handled-yet
 module.exports = function handleComposeBindings(...args) {
-  return ""
+  return "";
 };

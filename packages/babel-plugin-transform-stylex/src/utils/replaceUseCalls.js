@@ -7,21 +7,21 @@ const normalizeArguments = require("./normalizeArguments");
 
 function getUses(varDec) {
   if (!varDec.isVariableDeclarator()) {
-    throw varDec.buildCodeFrameError('Style has to be assigned to variable');
+    throw varDec.buildCodeFrameError("Style has to be assigned to variable");
   }
 
   return varDec.scope.bindings[varDec.node.id.name].referencePaths;
 }
 
 function isDynamicKey(memberExpr) {
-  const property = memberExpr.get('property');
+  const property = memberExpr.get("property");
 
   return memberExpr.node.computed && !property.isLiteral();
 }
 
 function getDynamicOrStaticKeys(memberExpr, allKeys) {
   // Don't remove any key when using dynamic access
-  if (isDynamicKey(memberExpr)) return allKeys;
+  if (isDynamicKey(memberExpr)) {return allKeys;}
 
   return [memberExpr.node.property.name || memberExpr.node.property.value];
 }
@@ -31,10 +31,10 @@ function replaceUseCalls(varDec, classes) {
     return getDynamicOrStaticKeys(varDec, Object.keys(classes));
   }
 
-  if (varDec.get('id').isObjectPattern()) {
+  if (varDec.get("id").isObjectPattern()) {
     const names = [];
 
-    for (const prop of varDec.get('id.properties')) {
+    for (const prop of varDec.get("id.properties")) {
       if (prop.isRestElement()) {
         return Object.keys(classes);
       }
@@ -52,14 +52,13 @@ function replaceUseCalls(varDec, classes) {
     if (use.parentPath.isCallExpression() && use.parent.callee === use.node) {
       const args = normalizeArguments(use);
       args.forEach(arg => {
-        if (typeof arg === 'string') names.add(arg);
-        else names.add(arg.value);
+        if (typeof arg === "string") {names.add(arg);} else {names.add(arg.value);}
       });
       const expr = generateExpression(args, flatClasses);
       use.parentPath.replaceWith(expr);
     } else if (use.parentPath.isMemberExpression()) {
       getDynamicOrStaticKeys(use.parentPath, Object.keys(classes))
-        .forEach(key => names.add(key))
+        .forEach(key => names.add(key));
     } else if (use.parentPath.isSpreadElement()) {
       return Object.keys(classes);
     }

@@ -1,9 +1,9 @@
 /**
- * The MIT License (MIT)
+ * The MIT License (MIT).
  *
  * Copyright (c) Johan Holmerin.
  * Copyright (c) Nicolas Gallagher.
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) Facebook, Inc. And its affiliates.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,87 +26,87 @@
 
 // https://github.com/necolas/react-native-web/blob/36dacb2052efdab2a28655773dc76934157d9134/packages/react-native-web/src/modules/unitlessNumbers/index.js
 const UNITLESS_NUMBERS = [
-  'animationIterationCount',
-  'borderImageOutset',
-  'borderImageSlice',
-  'borderImageWidth',
-  'boxFlex',
-  'boxFlexGroup',
-  'boxOrdinalGroup',
-  'columnCount',
-  'flex',
-  'flexGrow',
-  'flexOrder',
-  'flexPositive',
-  'flexShrink',
-  'flexNegative',
-  'fontWeight',
-  'gridRowEnd',
-  'gridRowSpan',
-  'gridRowStart',
-  'gridColumnEnd',
-  'gridColumnSpan',
-  'gridColumnStart',
-  'lineClamp',
-  'lineHeight',
-  'opacity',
-  'order',
-  'orphans',
-  'tabSize',
-  'widows',
-  'zIndex',
-  'zoom',
-  'fillOpacity',
-  'floodOpacity',
-  'stopOpacity',
-  'strokeDasharray',
-  'strokeDashoffset',
-  'strokeMiterlimit',
-  'strokeOpacity',
-  'strokeWidth',
-  'scale',
-  'scaleX',
-  'scaleY',
-  'scaleZ'
+  "animationIterationCount",
+  "borderImageOutset",
+  "borderImageSlice",
+  "borderImageWidth",
+  "boxFlex",
+  "boxFlexGroup",
+  "boxOrdinalGroup",
+  "columnCount",
+  "flex",
+  "flexGrow",
+  "flexOrder",
+  "flexPositive",
+  "flexShrink",
+  "flexNegative",
+  "fontWeight",
+  "gridRowEnd",
+  "gridRowSpan",
+  "gridRowStart",
+  "gridColumnEnd",
+  "gridColumnSpan",
+  "gridColumnStart",
+  "lineClamp",
+  "lineHeight",
+  "opacity",
+  "order",
+  "orphans",
+  "tabSize",
+  "widows",
+  "zIndex",
+  "zoom",
+  "fillOpacity",
+  "floodOpacity",
+  "stopOpacity",
+  "strokeDasharray",
+  "strokeDashoffset",
+  "strokeMiterlimit",
+  "strokeOpacity",
+  "strokeWidth",
+  "scale",
+  "scaleX",
+  "scaleY",
+  "scaleZ"
 ];
 
 // https://github.com/necolas/react-native-web/blob/36dacb2052efdab2a28655773dc76934157d9134/packages/react-native-web/src/exports/StyleSheet/constants.js
 const SHORTHAND_EXPANSIONS = {
   borderColor: [
-    'borderTopColor',
-    'borderRightColor',
-    'borderBottomColor',
-    'borderLeftColor'
+    "borderTopColor",
+    "borderRightColor",
+    "borderBottomColor",
+    "borderLeftColor"
   ],
   borderRadius: [
-    'borderTopLeftRadius',
-    'borderTopRightRadius',
-    'borderBottomRightRadius',
-    'borderBottomLeftRadius'
+    "borderTopLeftRadius",
+    "borderTopRightRadius",
+    "borderBottomRightRadius",
+    "borderBottomLeftRadius"
   ],
   borderStyle: [
-    'borderTopStyle',
-    'borderRightStyle',
-    'borderBottomStyle',
-    'borderLeftStyle'
+    "borderTopStyle",
+    "borderRightStyle",
+    "borderBottomStyle",
+    "borderLeftStyle"
   ],
   borderWidth: [
-    'borderTopWidth',
-    'borderRightWidth',
-    'borderBottomWidth',
-    'borderLeftWidth'
+    "borderTopWidth",
+    "borderRightWidth",
+    "borderBottomWidth",
+    "borderLeftWidth"
   ],
-  margin: ['marginTop', 'marginRight', 'marginBottom', 'marginLeft'],
-  overflow: ['overflowX', 'overflowY'],
-  overscrollBehavior: ['overscrollBehaviorX', 'overscrollBehaviorY'],
-  padding: ['paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft']
+  margin: ["marginTop", "marginRight", "marginBottom", "marginLeft"],
+  overflow: ["overflowX", "overflowY"],
+  overscrollBehavior: ["overscrollBehaviorX", "overscrollBehaviorY"],
+  padding: ["paddingTop", "paddingRight", "paddingBottom", "paddingLeft"]
 };
 
 const LEGACY_PSEUDO_ELEMENTS = [
-  ':before',
-  ':after',
-  ':first-letter',
-  ':first-line'
+  ":before",
+  ":after",
+  ":first-letter",
+  ":first-line"
 ];
 
 const BASE_FONT_SIZE_PX = 16;

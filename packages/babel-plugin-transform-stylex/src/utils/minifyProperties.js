@@ -10,7 +10,7 @@ module.exports = function minifyProperties(classes) {
     const minifiedName = classNamesUtils.minifyProperty(key);
     const value = classes[key];
 
-    minified[minifiedName] = typeof value === 'object' ?
+    minified[minifiedName] = typeof value === "object" ?
       minifyProperties(value) :
       value;
   }

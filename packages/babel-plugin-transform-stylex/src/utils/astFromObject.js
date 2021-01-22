@@ -1,13 +1,13 @@
 // some parts of this file is reference from: https://github.com/johanholmerin/style9
 // thanks to: @johanholmerin
 
-const t = require('@babel/types');
+const t = require("@babel/types");
 
 module.exports = function astFromObject(obj) {
   const ast = [];
 
   for (const name in obj) {
-    const astValue = typeof obj[name] === 'object' ?
+    const astValue = typeof obj[name] === "object" ?
       astFromObject(obj[name]) :
       t.stringLiteral(obj[name]);
     const key = t.isValidIdentifier(name, false) ?

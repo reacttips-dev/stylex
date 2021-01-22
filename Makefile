@@ -11,3 +11,8 @@ test:
 
 publish:
 	lerna publish from-package --yes
+
+lint:
+	node scripts/lint-packages.js
+	eslint packages --ext .js
+

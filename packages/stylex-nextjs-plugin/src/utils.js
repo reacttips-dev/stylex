@@ -1,11 +1,11 @@
 function stringifyCssRequest(outputLoaders) {
-  const cssLoaders = outputLoaders.map(stringifyLoaderRequest).join('!');
+  const cssLoaders = outputLoaders.map(stringifyLoaderRequest).join("!");
 
   return `!${cssLoaders}!`;
 }
 
-function stringifyLoaderRequest({ loader, options = {} }) {
+function stringifyLoaderRequest({loader, options = {}}) {
   return `${loader}?${JSON.stringify(options)}`;
 }
 
-module.exports = { stringifyCssRequest, stringifyLoaderRequest };
+module.exports = {stringifyCssRequest, stringifyLoaderRequest};

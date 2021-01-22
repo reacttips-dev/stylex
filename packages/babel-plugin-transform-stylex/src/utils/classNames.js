@@ -1,11 +1,11 @@
 /**
- * Copyright (c) Ladifire, Inc. and its affiliates.
+ * Copyright (c) Ladifire, Inc. And its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-const cssProperties = require('known-css-properties').all;
+const cssProperties = require("known-css-properties").all;
 
 const normalizePseudoElements = require("./normalizePseudoElements");
 const getClassHash = require("./getClassHash");
@@ -17,19 +17,19 @@ function getClass(...args) {
   return getClassHash(JSON.stringify(args));
 }
 
-function getClassValues(styles, { atRules = [], pseudoSelectors = [] } = {}) {
+function getClassValues(styles, {atRules = [], pseudoSelectors = []} = {}) {
   const classes = {};
 
   for (const name in styles) {
     const value = styles[name];
 
     if (isNestedObjects(value)) {
-      if (name.startsWith('@')) {
+      if (name.startsWith("@")) {
         classes[name] = getClassValues(value, {
           atRules: [...atRules, name],
           pseudoSelectors
         });
-      } else if (name.startsWith(':')) {
+      } else if (name.startsWith(":")) {
         const normalizedName = normalizePseudoElements(name);
         classes[normalizedName] = getClassValues(value, {
           pseudoSelectors: [...pseudoSelectors, normalizedName],
@@ -39,7 +39,7 @@ function getClassValues(styles, { atRules = [], pseudoSelectors = [] } = {}) {
         throw new Error(`Invalid key ${name}`);
       }
     } else {
-      classes[name] = getClass({ name, value, atRules, pseudoSelectors });
+      classes[name] = getClass({name, value, atRules, pseudoSelectors});
     }
   }
 
@@ -66,7 +66,7 @@ function flattenClasses(classes) {
       .map(([key, value]) => {
         const objValues = Object.fromEntries(
           flattenStyles(value)
-            .map(({ value, ...rest })=> [JSON.stringify(rest), value])
+            .map(({value, ...rest}) => [JSON.stringify(rest), value])
         );
         return [key, objValues];
       })
@@ -87,5 +87,5 @@ module.exports = {
   getClasses,
   getClassesForDedupe,
   flattenClasses,
-  minifyProperty,
+  minifyProperty
 };
