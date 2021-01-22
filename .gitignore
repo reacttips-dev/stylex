@@ -10,7 +10,8 @@ yarn.lock
 build
 dist
 public
-packages/*/*/dist
+packages/*/dist
+packages/*/.next
 .module-cache
 *.log*
 chrome-user-data
