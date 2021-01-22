@@ -1,6 +1,6 @@
 {
   "name": "@ladifire-opensource/stylex",
-  "version": "0.0.1-beta.4.0",
+  "version": "0.0.1-beta.5.0",
   "description": "Use CSS in JS with atomic support",
   "license": "MIT",
   "publishConfig": {
@@ -23,6 +23,6 @@
     "url": "https://github.com/ladifire-opensource/stylex"
   },
   "dependencies": {
-    "@ladifire-opensource/stylex-theme": "0.0.1-beta.4.0"
+    "@ladifire-opensource/stylex-theme": "0.0.1-beta.5.0"
   }
 }
