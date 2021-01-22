@@ -56,6 +56,7 @@
     "known-css-properties": "^0.20.0",
     "lerna": "^3.22.1",
     "loader-utils": "^2.0.0",
+    "node-fetch": "^2.6.1",
     "parcel": "^2.0.0-nightly.539",
     "postcss": "^7.0.32",
     "postcss-discard-duplicates": "^4.0.2",
