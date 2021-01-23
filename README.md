@@ -1,3 +1,9 @@
+<h1 align="center">
+  <img src="https://stylex.vercel.app/logo-black.png" height="96" />
+  <br />
+  <small>Write CSS in JS with Atomic first, like Facebook do!</small>
+</h1>
+
 # Stylex
 
 NOTE: Sylex will be released on February 1, 2021. Give this repo a star!

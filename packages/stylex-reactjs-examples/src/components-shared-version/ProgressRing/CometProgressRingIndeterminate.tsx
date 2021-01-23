@@ -10,17 +10,17 @@
  * governing permissions and limitations under the License.
  */
 
-import * as React from 'react';
+import * as React from "react";
 
-import stylex from '@ladifire-opensource/stylex';
+import stylex from "@ladifire-opensource/stylex";
 
-import {ariaGlimmerProps} from './ariaGlimmerProps';
-import {CometProgressRingUtils} from './CometProgressRingUtils';
+import {ariaGlimmerProps} from "./ariaGlimmerProps";
+import {CometProgressRingUtils} from "./CometProgressRingUtils";
 
 const i = stylex.create({
   animationFillModeAndTimingFn: {
     animationFillMode: "both",
-    animationTimingFunction: "cubic-bezier(0,0,1,1)",
+    animationTimingFunction: "cubic-bezier(0,0,1,1)"
   },
   foregroundCircle: {
     animationDuration: "2s",
@@ -31,26 +31,26 @@ const i = stylex.create({
   },
   foregroundCircle12: {
     animationName: stylex.keyframes({
-      '0%': {
+      "0%": {
         strokeDashoffset: 6.3,
-        transform: 'rotate(-90deg)',
+        transform: "rotate(-90deg)"
       },
-      '25%': {
+      "25%": {
         strokeDashoffset: 28.3,
-        transform: 'rotate(162deg)',
+        transform: "rotate(162deg)"
       },
-      '50%': {
+      "50%": {
         strokeDashoffset: 14.1,
-        transform: 'rotate(72deg)',
+        transform: "rotate(72deg)"
       },
-      '75%': {
+      "75%": {
         strokeDashoffset: 28.3,
-        transform: 'rotate(162deg)',
+        transform: "rotate(162deg)"
       },
-      '100%': {
+      "100%": {
         strokeDashoffset: 6.3,
-        transform: 'rotate(-90deg)',
-      },
+        transform: "rotate(-90deg)"
+      }
     })
   },
   foregroundCircle12Optimized: {
@@ -58,26 +58,26 @@ const i = stylex.create({
   },
   foregroundCircle16: {
     animationName: stylex.keyframes({
-      '0%': {
+      "0%": {
         strokeDashoffset: 8.8,
-        transform: 'rotate(-90deg)',
+        transform: "rotate(-90deg)"
       },
-      '25%': {
+      "25%": {
         strokeDashoffset: 39.6,
-        transform: 'rotate(162deg)',
+        transform: "rotate(162deg)"
       },
-      '50%': {
+      "50%": {
         strokeDashoffset: 19.8,
-        transform: 'rotate(72deg)',
+        transform: "rotate(72deg)"
       },
-      '75%': {
+      "75%": {
         strokeDashoffset: 39.6,
-        transform: 'rotate(162deg)',
+        transform: "rotate(162deg)"
       },
-      '100%': {
+      "100%": {
         strokeDashoffset: 8.8,
-        transform: 'rotate(-90deg)',
-      },
+        transform: "rotate(-90deg)"
+      }
     })
   },
   foregroundCircle16Optimized: {
@@ -85,26 +85,26 @@ const i = stylex.create({
   },
   foregroundCircle20: {
     animationName: stylex.keyframes({
-      '0%': {
+      "0%": {
         strokeDashoffset: 11.3,
-        transform: 'rotate(-90deg)',
+        transform: "rotate(-90deg)"
       },
-      '25%': {
+      "25%": {
         strokeDashoffset: 50.9,
-        transform: 'rotate(162deg)',
+        transform: "rotate(162deg)"
       },
-      '50%': {
+      "50%": {
         strokeDashoffset: 25.4,
-        transform: 'rotate(72deg)',
+        transform: "rotate(72deg)"
       },
-      '75%': {
+      "75%": {
         strokeDashoffset: 50.9,
-        transform: 'rotate(162deg)',
+        transform: "rotate(162deg)"
       },
-      '100%': {
+      "100%": {
         strokeDashoffset: 11.3,
-        transform: 'rotate(-90deg)',
-      },
+        transform: "rotate(-90deg)"
+      }
     })
   },
   foregroundCircle20Optimized: {
@@ -112,26 +112,26 @@ const i = stylex.create({
   },
   foregroundCircle24: {
     animationName: stylex.keyframes({
-      '0%': {
+      "0%": {
         strokeDashoffset: 13.8,
-        transform: 'rotate(-90deg)',
+        transform: "rotate(-90deg)"
       },
-      '25%': {
+      "25%": {
         strokeDashoffset: 62.2,
-        transform: 'rotate(162deg)',
+        transform: "rotate(162deg)"
       },
-      '50%': {
+      "50%": {
         strokeDashoffset: 31.1,
-        transform: 'rotate(72deg)',
+        transform: "rotate(72deg)"
       },
-      '75%': {
+      "75%": {
         strokeDashoffset: 62.2,
-        transform: 'rotate(162deg)',
+        transform: "rotate(162deg)"
       },
-      '100%': {
+      "100%": {
         strokeDashoffset: 13.8,
-        transform: 'rotate(-90deg)',
-      },
+        transform: "rotate(-90deg)"
+      }
     })
   },
   foregroundCircle24Optimized: {
@@ -139,26 +139,26 @@ const i = stylex.create({
   },
   foregroundCircle32: {
     animationName: stylex.keyframes({
-      '0%': {
+      "0%": {
         strokeDashoffset: 18.8,
-        transform: 'rotate(-90deg)',
+        transform: "rotate(-90deg)"
       },
-      '25%': {
+      "25%": {
         strokeDashoffset: 84.8,
-        transform: 'rotate(162deg)',
+        transform: "rotate(162deg)"
       },
-      '50%': {
+      "50%": {
         strokeDashoffset: 42.4,
-        transform: 'rotate(72deg)',
+        transform: "rotate(72deg)"
       },
-      '75%': {
+      "75%": {
         strokeDashoffset: 84.8,
-        transform: 'rotate(162deg)',
+        transform: "rotate(162deg)"
       },
-      '100%': {
+      "100%": {
         strokeDashoffset: 18.8,
-        transform: 'rotate(-90deg)',
-      },
+        transform: "rotate(-90deg)"
+      }
     })
   },
   foregroundCircle32Optimized: {
@@ -166,26 +166,26 @@ const i = stylex.create({
   },
   foregroundCircle48: {
     animationName: stylex.keyframes({
-      '0%': {
+      "0%": {
         strokeDashoffset: 28.9,
-        transform: 'rotate(-90deg)',
+        transform: "rotate(-90deg)"
       },
-      '25%': {
+      "25%": {
         strokeDashoffset: 130,
-        transform: 'rotate(162deg)',
+        transform: "rotate(162deg)"
       },
-      '50%': {
+      "50%": {
         strokeDashoffset: 65,
-        transform: 'rotate(72deg)',
+        transform: "rotate(72deg)"
       },
-      '75%': {
+      "75%": {
         strokeDashoffset: 130,
-        transform: 'rotate(162deg)',
+        transform: "rotate(162deg)"
       },
-      '100%': {
+      "100%": {
         strokeDashoffset: 28.9,
-        transform: 'rotate(-90deg)',
-      },
+        transform: "rotate(-90deg)"
+      }
     })
   },
   foregroundCircle48Optimized: {
@@ -193,53 +193,53 @@ const i = stylex.create({
   },
   foregroundCircle60: {
     animationName: stylex.keyframes({
-      '0%': {
+      "0%": {
         strokeDashoffset: 36.4,
-        transform: 'rotate(-90deg)',
+        transform: "rotate(-90deg)"
       },
-      '25%': {
+      "25%": {
         strokeDashoffset: 164,
-        transform: 'rotate(162deg)',
+        transform: "rotate(162deg)"
       },
-      '50%': {
+      "50%": {
         strokeDashoffset: 82,
-        transform: 'rotate(72deg)',
+        transform: "rotate(72deg)"
       },
-      '75%': {
+      "75%": {
         strokeDashoffset: 164,
-        transform: 'rotate(162deg)',
+        transform: "rotate(162deg)"
       },
-      '100%': {
+      "100%": {
         strokeDashoffset: 36.4,
-        transform: 'rotate(-90deg)',
-      },
+        transform: "rotate(-90deg)"
+      }
     })
   },
   foregroundCircle60Optimized: {
-    strokeDashoffset: 36.4,
+    strokeDashoffset: 36.4
   },
   foregroundCircle72: {
     animationName: stylex.keyframes({
-      '0%': {
+      "0%": {
         strokeDashoffset: 43.98,
-        transform: 'rotate(-90deg)',
+        transform: "rotate(-90deg)"
       },
-      '25%': {
+      "25%": {
         strokeDashoffset: 197.9,
-        transform: 'rotate(162deg)',
+        transform: "rotate(162deg)"
       },
-      '50%': {
+      "50%": {
         strokeDashoffset: 98.9,
-        transform: 'rotate(72deg)',
+        transform: "rotate(72deg)"
       },
-      '75%': {
+      "75%": {
         strokeDashoffset: 197.9,
-        transform: 'rotate(162deg)',
+        transform: "rotate(162deg)"
       },
-      '100%': {
+      "100%": {
         strokeDashoffset: 43.98,
-        transform: 'rotate(-90deg)',
-      },
+        transform: "rotate(-90deg)"
+      }
     })
   },
   foregroundCircle72Optimized: {
@@ -252,21 +252,21 @@ const i = stylex.create({
     animationDuration: "2s",
     animationIterationCount: "infinite",
     animationName: stylex.keyframes({
-      '0%': {
+      "0%": {
         transform: "rotate(-90deg)"
       },
-      '25%': {
+      "25%": {
         transform: "rotate(90deg)"
       },
-      '50%': {
+      "50%": {
         transform: "rotate(270deg)"
       },
-      '75%': {
+      "75%": {
         transform: "rotate(450deg)"
       },
-      '100%': {
+      "100%": {
         transform: "rotate(990deg)"
-      },
+      }
     }),
     animationTimingFunction: "steps(10,end)",
     transformOrigin: "50% 50%"
