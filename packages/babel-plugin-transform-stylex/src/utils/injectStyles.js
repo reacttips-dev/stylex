@@ -7,11 +7,13 @@
 
 const template = require("@babel/template").default;
 
-module.exports = function injectStyles(styles, path) {
-  if (styles && styles.length > 0) {
-    styles.map((styleObject) => {
-      const append = template("stylex.inject(\"" + `${styleObject.toString().replace(/"/g, '\\"')}` + "\");");
-      path.pushContainer("body", append());
+module.exports = function injectStyles(_styles, path) {
+  if (_styles && _styles.length > 0) {
+    _styles.map((styleObject) => {
+      if (styleObject) {
+        const append = template(`stylex.inject("` + `${styleObject.toString().replace(/"/g, '\\"')}` + `");`);
+        path.pushContainer('body', append())
+      }
     });
   }
 };

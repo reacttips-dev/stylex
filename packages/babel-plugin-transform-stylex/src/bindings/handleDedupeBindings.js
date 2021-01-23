@@ -1,5 +1,5 @@
 /**
- * Copyright (c) Ladifire, Inc. and its affiliates.
+ * Copyright (c) Ladifire, Inc. And its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -31,12 +31,12 @@ function doDedupe(path, opts, root) {
 
 module.exports = function handleDedupeBindings(identifier, opts, path) {
   const callExpr = identifier.parentPath.parentPath;
-  const objsExpr = callExpr.get('arguments');
+  const objsExpr = callExpr.get("arguments");
 
   let _finalStyles = [];
 
   if (objsExpr && objsExpr.length > 0) {
-    objsExpr.forEach(function(objExpr) {
+    objsExpr.forEach(function (objExpr) {
       // check if objExpr is style Object or Ternary operator
       if (objExpr.isObjectExpression()) {
         const _styles = doDedupe(objExpr, opts, path);
@@ -63,7 +63,7 @@ module.exports = function handleDedupeBindings(identifier, opts, path) {
       } else {
         // TODO: maybe there're nothing else to handle with stylex, need more review
       }
-    })
+    });
   }
 
   // only inject this to js, if there's an option {inject: true}

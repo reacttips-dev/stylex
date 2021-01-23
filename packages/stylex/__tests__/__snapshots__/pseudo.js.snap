@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`string 1`] = `
+"\\"use strict\\";
+
+var _stylex = _interopRequireDefault(require(\\"@ladifire-opensource/stylex\\"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
+
+var styles = {
+  root: {
+    color: \\"aaaeyvqo\\",
+    backgroundColor: \\"jab5yxxb\\",
+    \\"::before\\": {
+      color: \\"yaavwbwo\\"
+    }
+  }
+};
+var a = styles('root', 'button');"
+`;

@@ -12,7 +12,12 @@ import stylex from '@ladifire-opensource/stylex';
 const styles = stylex.create({
   root: {
     fontWeight: 700,
-    color: "blue"
+    color: "blue",
+    "::-webkit-scrollbar": {
+      display: "none",
+      height: 0,
+      width: 0
+    }
   },
   button: {
     borderRadius: 8, // TODO: number is not recognized
