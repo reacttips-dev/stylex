@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const StylexSheet = require("./StyleXSheet");
+const StylexSheet = require('./StyleXSheet');
 
 class _CometStyleXSheet extends StylexSheet {
   constructor(props = {}) {
@@ -14,8 +14,8 @@ class _CometStyleXSheet extends StylexSheet {
     this.rootTheme = props.rootTheme || {};
     this.customTheme = props.customTheme || {};
 
-    this.injectThemeVariables = function (data, themeKey = "root") {
-      if (themeKey === "root") {
+    this.injectThemeVariables = function (data, themeKey = 'root') {
+      if (themeKey === 'root') {
         this.rootTheme = Object.assign(this.rootTheme, data);
       } else {
         this.customTheme = Object.assign(this.customTheme, data);

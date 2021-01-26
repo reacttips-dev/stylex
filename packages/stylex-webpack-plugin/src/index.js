@@ -5,13 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const {SourceMapSource, RawSource} = require("webpack-sources");
+const {SourceMapSource, RawSource} = require('webpack-sources');
 
-const processCSS = require("./processCSS");
-const virtualModules = require("./virtualModules");
+const processCSS = require('./processCSS');
+const virtualModules = require('./virtualModules');
 
 // TODO: get it from package.json
-const NAME = "@ladifire-opensource/stylex";
+const NAME = '@ladifire-opensource/stylex';
 
 const flatMap = (arr, cb) => arr.flatMap ? arr.flatMap(cb) : [].concat(...arr.map(cb));
 
@@ -59,4 +59,4 @@ class StylexPlugin {
 }
 
 module.exports = StylexPlugin;
-module.exports.loader = require.resolve("./webpack-loader.js");
+module.exports.loader = require.resolve('./webpack-loader.js');

@@ -20,7 +20,7 @@ async function stylexLoader(input, inputSourceMap) {
     ...options
   } = loaderUtils.getOptions(this) || {};
 
-  this.async();
+  const callback = this.async();
 
   const {code, map, metadata} = await babel.transformAsync(input, {
     plugins: [[babelPlugin, Object.assign({}, options, {inject})]],
@@ -28,15 +28,16 @@ async function stylexLoader(input, inputSourceMap) {
     sourceFileName: this.resourcePath,
     filename: path.basename(this.resourcePath),
     sourceMaps: true
-  }).catch((error) => {
-    this.callback(null, input, inputSourceMap);
+  }).catch((e) => {
+    console.log(chalk.red(`\nAn error occur: ${e}`));
+    callback(null, input, inputSourceMap);
   });
 
   try {
     if (metadata.stylex === undefined) {
-      this.callback(null, input, inputSourceMap);
+      callback(null, input, inputSourceMap);
     } else if (inject) {
-      this.callback(null, code, map);
+      callback(null, code, map);
     } else {
       const cssPath = loaderUtils.interpolateName(
         this,
@@ -49,7 +50,7 @@ async function stylexLoader(input, inputSourceMap) {
       virtualModules.writeModule(cssPath, metadata.stylex);
 
       const postfix = `import '${inlineLoader + cssPath}';`;
-      this.callback(null, code + postfix, map);
+      callback(null, code + postfix, map);
     }
   } catch (e) {
     console.log(chalk.red(`\nAn error occur: ${e}`));

@@ -1,5 +1,5 @@
 function stringifyCssRequest(outputLoaders) {
-  const cssLoaders = outputLoaders.map(stringifyLoaderRequest).join("!");
+  const cssLoaders = outputLoaders.map(stringifyLoaderRequest).join('!');
 
   return `!${cssLoaders}!`;
 }

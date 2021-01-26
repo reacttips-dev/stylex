@@ -1,13 +1,13 @@
 // license by johanholmerin
-const StylexPlugin = require("@ladifire-opensource/stylex-webpack-plugin");
+const StylexPlugin = require('@ladifire-opensource/stylex-webpack-plugin');
 const {
   getClientStyleLoader
-} = require("next/dist/build/webpack/config/blocks/css/loaders/client");
-const {stringifyCssRequest} = require("./utils");
+} = require('next/dist/build/webpack/config/blocks/css/loaders/client');
+const {stringifyCssRequest} = require('./utils');
 
 function getInlineLoader(options) {
   const outputLoaders = [
-    {loader: "css-loader"}
+    {loader: 'css-loader'}
   ];
 
   if (!options.isServer) {
@@ -46,7 +46,7 @@ module.exports = (pluginOptions = {}) => (nextConfig = {}) => ({
       config.plugins.push(new StylexPlugin());
     }
 
-    if (typeof nextConfig.webpack === "function") {
+    if (typeof nextConfig.webpack === 'function') {
       return nextConfig.webpack(config, options);
     }
 

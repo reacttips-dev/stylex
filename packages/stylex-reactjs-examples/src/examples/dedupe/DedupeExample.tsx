@@ -1,5 +1,5 @@
 /**
- * Copyright (c) Ladifire, Inc. and its affiliates.
+ * Copyright (c) Ladifire, Inc. And its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,25 +11,25 @@ import stylex from '@ladifire-opensource/stylex';
 
 const styles = stylex.create({
   code: {
-    position: "relative",
-    whiteSpace: "pre-line",
-    backgroundColor: "rgba(0,0,0,0.05)",
+    position: 'relative',
+    whiteSpace: 'pre-line',
+    backgroundColor: 'rgba(0,0,0,0.05)',
     borderRadius: 6,
     paddingTop: 26,
     paddingLeft: 6,
     paddingRight: 6,
     paddingBottom: 6,
-    color: "var(--secondary-text)",
+    color: 'var(--secondary-text)',
 
-    ":before": {
+    ':before': {
       content: '"classes"',
-      position: "absolute",
+      position: 'absolute',
       top: 6,
       left: 6,
       fontWeight: 700,
-      color: "var(--secondary-text)"
-    },
-  },
+      color: 'var(--secondary-text)'
+    }
+  }
 });
 
 export const DedupeExample = () => {
@@ -42,16 +42,16 @@ export const DedupeExample = () => {
   const classes = stylex.dedupe(
     {
       borderRadius: 6,
-      border: "1px solid rgba(0, 0, 0, 0.1)",
-      backgroundColor: "#fff",
+      border: '1px solid rgba(0, 0, 0, 0.1)',
+      backgroundColor: '#fff',
       padding: 8,
-      cursor: "pointer",
-      userSelect: "none",
+      cursor: 'pointer',
+      userSelect: 'none'
     },
     selected ? {
-      backgroundColor: "#0089ff",
-      color: "#fff"
-    } : null,
+      backgroundColor: '#0089ff',
+      color: '#fff'
+    } : null
   );
 
   return (

@@ -78,7 +78,7 @@ let appConfig = {
           {
             loader: StylexPlugin.loader,
             options: {
-              inject: true
+              inject: false
             }
           }
         ]
@@ -89,7 +89,7 @@ let appConfig = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[hash:6].[ext]',
+              name: '[name].[contenthash:11].[ext]',
               esModule: false
             }
           },
@@ -177,8 +177,8 @@ let appConfig = {
     new StylexPlugin(),
 
     new ExtractTextPlugin({
-      filename: '[name].[contentHash:11].css',
-      chunkFilename: '[name].[contentHash:11].css'
+      filename: '[name].[contenthash:11].css',
+      chunkFilename: '[name].[contenthash:11].css'
     }),
 
     new HtmlWebpackPlugin({

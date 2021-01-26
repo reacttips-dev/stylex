@@ -1,3 +1,3 @@
-const VirtualModulesPlugin = require("webpack-virtual-modules");
+const VirtualModulesPlugin = require('webpack-virtual-modules');
 
 module.exports = new VirtualModulesPlugin();

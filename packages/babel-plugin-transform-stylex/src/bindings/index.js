@@ -34,8 +34,9 @@ function handleBinding(node, opts, path) {
     return handleComposeBindings(node, opts, path);
   }
 
-  // TODO: throw an error if there're nothing match
-  return '.aaa{color: red;}';
+  // TODO: consider to throw an error if there're nothing match
+  // instead return empty string
+  return '';
 }
 
 module.exports = function (bindings, opts, path) {

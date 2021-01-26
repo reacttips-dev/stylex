@@ -1,33 +1,33 @@
 // some parts of this file is reference from: https://github.com/johanholmerin/style9
 // thanks to: @johanholmerin
 
-const postcss = require("postcss");
-const discardDuplicates = require("postcss-discard-duplicates");
-const selectorParser = require("postcss-selector-parser");
-const sortCSSmq = require("sort-css-media-queries");
+const postcss = require('postcss');
+const discardDuplicates = require('postcss-discard-duplicates');
+const selectorParser = require('postcss-selector-parser');
+const sortCSSmq = require('sort-css-media-queries');
 
 const PSEUDO_ORDER = [
-  ":link",
-  ":focus-within",
-  ":first-child",
-  ":last-child",
-  ":odd-child",
-  ":even-child",
-  ":hover",
-  ":focus",
-  ":active",
-  ":visited",
-  ":disabled"
+  ':link',
+  ':focus-within',
+  ':first-child',
+  ':last-child',
+  ':odd-child',
+  ':even-child',
+  ':hover',
+  ':focus',
+  ':active',
+  ':visited',
+  ':disabled'
 ];
 
 function isValidSelector({nodes: [firstNode, ...restNodes]}) {
   if (restNodes.length) {return false;}
 
-  if (firstNode.nodes[0].type !== "class") {return false;}
+  if (firstNode.nodes[0].type !== 'class') {return false;}
 
   for (let index = 1; index < firstNode.nodes.length; index++) {
     const node = firstNode.nodes[index];
-    if (node.type !== "pseudo") {return false;}
+    if (node.type !== 'pseudo') {return false;}
   }
 
   return true;
@@ -39,7 +39,7 @@ function parseSelector(selector) {
 
 function getPseudoClasses(selector) {
   return selector
-    .filter(selector => selector.type === "pseudo" && selector.value[1] !== ":")
+    .filter(selector => selector.type === 'pseudo' && selector.value[1] !== ':')
     .map(selector => selector.value);
 }
 
@@ -51,11 +51,11 @@ function removeWithContext(rule) {
     const {parent} = rule;
     if (rule.nodes && rule.nodes.length) {onlyChild = false;}
     const clone = onlyChild ? rule.remove() : rule.clone();
-    if (rule.type !== "decl") {clone.removeAll();}
+    if (rule.type !== 'decl') {clone.removeAll();}
     if (decl) {clone.append(decl);}
     decl = clone;
     rule = parent;
-  } while (rule && rule.type !== "root");
+  } while (rule && rule.type !== 'root');
 
   return decl;
 }
@@ -63,8 +63,8 @@ function removeWithContext(rule) {
 function getMediaQueries(rule) {
   const mediaQueries = [];
 
-  while (rule && rule.type !== "root") {
-    if (rule.type === "atrule" && rule.name === "media") {
+  while (rule && rule.type !== 'root') {
+    if (rule.type === 'atrule' && rule.name === 'media') {
       mediaQueries.push(rule.params);
     }
     rule = rule.parent;
@@ -120,8 +120,8 @@ function sortNodes(nodes) {
 
     if (a.mediaQueries.length) {
       return sortCSSmq(
-        a.mediaQueries.join(" and "),
-        b.mediaQueries.join(" and ")
+        a.mediaQueries.join(' and '),
+        b.mediaQueries.join(' and ')
       );
     }
   });

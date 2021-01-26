@@ -5,34 +5,34 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const ExecutionEnvironment = require("./utils");
+const ExecutionEnvironment = require('./utils');
 
-const _DEFAULT_THEME_CLASS_NAME = "__base";
-const _CUSTOM_THEME_CLASS_NAME = "__custom";
+const _DEFAULT_THEME_CLASS_NAME = '__base';
+const _CUSTOM_THEME_CLASS_NAME = '__custom';
 
 function buildThemeVariables(themeKey, themeObj) {
   const variables = [];
-  variables.push(themeKey + " {");
+  variables.push(themeKey + ' {');
   for (const variable in themeObj) {
     const value = themeObj[variable];
-    variables.push("  --" + variable + ": " + value + ";");
+    variables.push('  --' + variable + ': ' + value + ';');
   }
-  variables.push("}");
-  return variables.join("\n");
+  variables.push('}');
+  return variables.join('\n');
 }
 
 function injectStyleSheet() {
-  const style = document.createElement("style");
-  style.setAttribute("type", "text/css");
-  style.setAttribute("data-styled", "true");
-  const head = document.head || document.getElementsByTagName("head")[0];
-  head || console.error("Can not find head in html document!");
+  const style = document.createElement('style');
+  style.setAttribute('type', 'text/css');
+  style.setAttribute('data-styled', 'true');
+  const head = document.head || document.getElementsByTagName('head')[0];
+  head || console.error('Can not find head in html document!');
   head.appendChild(style);
   return style;
 }
 
 function isSupportCSS() {
-  return typeof window !== "undefined" && window.CSS != null && window.CSS.supports != null && window.CSS.supports("--fake-var:0");
+  return typeof window !== 'undefined' && window.CSS != null && window.CSS.supports != null && window.CSS.supports('--fake-var:0');
 }
 
 function toggleClassName(doc, className, add) {
@@ -51,7 +51,7 @@ class StyleXSheet {
     this.rules = [];
     this.rootTheme = props.rootTheme;
     this.customTheme = props.customTheme;
-    this.isSlow = (_isSlow = props.isSlow) != null ? _isSlow : typeof location === "object" && typeof location.search === "string" ? location.search.includes("stylex-slow") : false;
+    this.isSlow = (_isSlow = props.isSlow) != null ? _isSlow : typeof location === 'object' && typeof location.search === 'string' ? location.search.includes('stylex-slow') : false;
     this.supportsVariables = (_supportVariables = props.supportsVariables) != null ? _supportVariables : isSupportCSS();
     this._isRTL = false; // TODO: need RTL from runtime
     this.externalRules = new Set();
@@ -77,12 +77,12 @@ class StyleXSheet {
 
   getTag() {
     let _tag = this.tag;
-    _tag != null || console.error("Tag is not found!");
+    _tag != null || console.error('Tag is not found!');
     return _tag;
   }
 
   getCSS() {
-    return this.rules.join("\n");
+    return this.rules.join('\n');
   }
 
   getRulePosition(rule) {
@@ -104,8 +104,8 @@ class StyleXSheet {
     this.injectTheme();
   }
 
-  injectVariables(data, themeKey = "root") {
-    if (themeKey === "root") {
+  injectVariables(data, themeKey = 'root') {
+    if (themeKey === 'root') {
       this.rootTheme = Object.assign(this.rootTheme, data);
     } else {
       this.customTheme = Object.assign(this.customTheme, data);
@@ -124,12 +124,12 @@ class StyleXSheet {
   }
 
   toggleCustomTheme(active) {
-    return this.toggleDocumentClassName("__custom", active);
+    return this.toggleDocumentClassName('__custom', active);
   }
 
   injectTheme() {
-    this.rootTheme != null && this.insert(buildThemeVariables(":root, ." + _DEFAULT_THEME_CLASS_NAME, this.rootTheme), 0);
-    this.customTheme != null && this.insert(buildThemeVariables("." + _CUSTOM_THEME_CLASS_NAME + ":root, ." + _CUSTOM_THEME_CLASS_NAME, this.customTheme), 0);
+    this.rootTheme != null && this.insert(buildThemeVariables(':root, .' + _DEFAULT_THEME_CLASS_NAME, this.rootTheme), 0);
+    this.customTheme != null && this.insert(buildThemeVariables('.' + _CUSTOM_THEME_CLASS_NAME + ':root, .' + _CUSTOM_THEME_CLASS_NAME, this.customTheme), 0);
   }
 
   __injectCustomThemeForTesting(themeKey, themeObject) {
@@ -138,13 +138,13 @@ class StyleXSheet {
 
   delete(rule) {
     const ruleIndex = this.rules.indexOf(rule);
-    ruleIndex >= 0 || console.error("TODO: ???");
+    ruleIndex >= 0 || console.error('TODO: ???');
     this.rules.splice(ruleIndex, 1);
     if (this.isHeadless()) {return;}
     const tag = this.getTag();
     if (this.isSlow) {tag.removeChild(tag.childNodes[ruleIndex + 1]);} else {
       const sheet = tag.sheet;
-      sheet || console.error("Sheet not found!");
+      sheet || console.error('Sheet not found!');
       sheet.deleteRule(ruleIndex);
     }
   }
@@ -173,10 +173,10 @@ class StyleXSheet {
     // ensure stylesheet was injected
     this.injected === false && this.inject();
     c = this._isRTL && c != null ? c : themeVariables;
-    if (this.externalRules.has(c.slice(0, c.indexOf("{")).trim())) {return;}
+    if (this.externalRules.has(c.slice(0, c.indexOf('{')).trim())) {return;}
     if (this.rules.includes(c)) {return;}
     const a = this.normalizeRule(c);
-    if (this.externalRules.has(a.slice(0, a.indexOf("{")).trim())) {return;}
+    if (this.externalRules.has(a.slice(0, a.indexOf('{')).trim())) {return;}
     c = this.getInsertPositionForPriority(priority);
     this.rules.splice(c, 0, a);
     this.ruleForPriority.set(priority, a);
