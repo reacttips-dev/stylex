@@ -119,7 +119,7 @@ module.exports = {
 
 ### Setup with Nextjs
 
-Firt thing, you need add ```next-transpile-modules``` to your project.
+First thing, you need add ```next-transpile-modules``` to your project.
 
 Just run:
 
