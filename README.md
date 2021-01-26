@@ -167,6 +167,12 @@ module.exports = {
 ### Setup with Angular
 *Under construction!!!*
 
+## Examples
+
+* React minimal example: [View code](https://github.com/ladifire-opensource/react-stylex-minimal)
+* Nextjs examples: [View code](https://github.com/ladifire-opensource/stylex.vercel.app), [other nextjs example](https://github.com/ladifire-opensource/stylex/tree/main/packages/stylex-vuejs-examples)
+* Vue example: [View code](https://github.com/ladifire-opensource/stylex/tree/main/packages/stylex-vuejs-examples)
+
 ## How to use stylex?
 
 There're some methods you can you with stylex:
