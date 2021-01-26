@@ -1,6 +1,6 @@
 {
   "name": "@ladifire-opensource/stylex-webpack-plugin",
-  "version": "0.0.1-beta.5.0",
+  "version": "0.1.0-beta.0",
   "description": "Transform Stylex code",
   "license": "MIT",
   "publishConfig": {
@@ -22,7 +22,7 @@
     "@babel/core": "^7.11.1"
   },
   "dependencies": {
-    "@ladifire-opensource/babel-plugin-transform-stylex": "0.0.1-beta.5.0",
+    "@ladifire-opensource/babel-plugin-transform-stylex": "0.1.0-beta.0",
     "@types/webpack-sources": "^2.1.0",
     "chalk": "^3.0.0",
     "loader-utils": "^2.0.0",

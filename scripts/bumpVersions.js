@@ -21,11 +21,11 @@ let levels = {
 
 // Packages to release
 let publicPackages = {
-  "@ladifire-opensource/babel-plugin-transform-stylex": "beta.5",
-  "@ladifire-opensource/stylex": "beta.5",
-  "@ladifire-opensource/stylex-theme": "beta.5",
-  "@ladifire-opensource/stylex-webpack-plugin": "beta.5",
-  "@ladifire-opensource/stylex-nextjs-plugin": "beta.5",
+  "@ladifire-opensource/babel-plugin-transform-stylex": "beta",
+  "@ladifire-opensource/stylex": "beta",
+  "@ladifire-opensource/stylex-theme": "beta",
+  "@ladifire-opensource/stylex-webpack-plugin": "beta",
+  "@ladifire-opensource/stylex-nextjs-plugin": "beta",
 };
 
 // Packages never to release
@@ -102,6 +102,7 @@ async function run() {
   try {
     let existingPackages = await getExistingPackages();
     let versions = getVersions(existingPackages);
+    console.log("versions", versions);
     await promptVersions(versions);
     bumpVersions(versions);
     commit(versions);
@@ -113,6 +114,7 @@ async function run() {
 
 function getVersions(existingPackages) {
   let versions = new Map();
+
   if (existingPackages.length > 0) {
     for (let [name, { location, status }] of releasedPackages) {
       let filePath = location + "/package.json";
@@ -142,9 +144,10 @@ function getVersions(existingPackages) {
             parsed.prerelease[1] = 0;
             newVersion = parsed.format();
           }
+
         } else {
           if (status === 'released') {
-            newVersion = '1.0.0';
+            newVersion = '0.1.0';
           } else {
             newVersion = semver.inc(pkg.version, "prerelease", status);
           }
@@ -174,7 +177,7 @@ function getVersions(existingPackages) {
         }
       } else {
         if (status === "released") {
-          newVersion = "1.0.0";
+          newVersion = "0.1.0";
         } else {
           newVersion = semver.inc(pkg.version, "prerelease", status);
         }
