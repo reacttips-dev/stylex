@@ -4,14 +4,16 @@
   <small>Write CSS in JS with Atomic first, like Facebook do!</small>
 </h1>
 
-# Stylex
+## About Stylex
 
-NOTE: Sylex will be released on February 1, 2021. Give this repo a star!
+**NOTE: The idea of stylex originated from Facebook.**
 
-See Facebook React conf video for about Stylex: [Click here](https://youtu.be/9JZHodNR184?t=229)
+The underlying idea was to not discard idiomatic CSS but to make it 
+easier to maintain and keep the good parts of CSS that developers are 
+used to enjoying. The number one priority was readability and 
+maintainability, which are issues compounded at scale.
 
-## Join Stylex Community (Facebook group)
-Visit [this link](https://www.facebook.com/groups/713597106002279) to join Stylex community.
+See Facebook React conf video for more about Stylex: [Click here](https://youtu.be/9JZHodNR184?t=229)
 
 ## Installation
 
@@ -397,10 +399,9 @@ module.exports = {
 
 ### SSR support
 
-### Others 
+See ```stylex-nextjs-examples``` for setup stylex with nextjs.
 
-#### Typescript support
-*Describe how to use stylex with typescript support*
+### Others 
 
 #### Pass stylex through props (Reactjs)
 
@@ -524,8 +525,8 @@ export const ThemingExamples = () => {
 
 ## Thanks to
 
-* I'd like to send a big thanks to: johanholmerin for style9 (an other stylex cover)
-* I'd like to thanks Facebook very much (most of javascript code in stylex is re-write from built code of Facebook)
+* We'd like to send a big thanks to: johanholmerin for style9 (an other stylex cover)
+* We'd like to thanks Facebook very much (most of javascript code in stylex is re-write from built code of Facebook)
 
 ## Contributing
 
@@ -539,6 +540,9 @@ Then, run: ```yarn install```
 
 To see reactjs demo, cd to ```stylex-reactjs-examples``` and following steps in
 README.md to run Reactjs demo
+
+## Join Stylex Community (Facebook group)
+Visit [this link](https://www.facebook.com/groups/713597106002279) to join Stylex community.
 
 ### License
 
