@@ -1,21 +1,21 @@
 // some parts of this file is reference from: https://github.com/johanholmerin/style9
 // thanks to: @johanholmerin
 
-const chalk = require("chalk");
+const chalk = require('chalk');
 
-const expandProperty = require("./expandProperty");
-const camelToHyphen = require("./camelToHyphen");
-const normalizeValue = require("./normalizeValue");
-const getClass = require("./classNames").getClass;
+const expandProperty = require('./expandProperty');
+const camelToHyphen = require('./camelToHyphen');
+const normalizeValue = require('./normalizeValue');
+const getClass = require('./classNames').getClass;
 
 function normalizeTime(time) {
-  if (time === "from") {return "0%";}
-  if (time === "to") {return "100%";}
+  if (time === 'from') {return '0%';}
+  if (time === 'to') {return '100%';}
   return time;
 }
 
 function stringifyKeyframes(rules) {
-  let str = "";
+  let str = '';
 
   for (const time in rules) {
     if (!Object.keys(rules[time]).length) {continue;}
@@ -34,7 +34,7 @@ function stringifyKeyframes(rules) {
     }
 
     // Remove last semicolon
-    str = str.slice(0, -1) + "}";
+    str = str.slice(0, -1) + '}';
   }
 
   return str;

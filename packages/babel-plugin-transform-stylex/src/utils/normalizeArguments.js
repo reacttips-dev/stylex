@@ -1,12 +1,12 @@
-const t = require("@babel/types");
-const {extractNode} = require("./extractNode.js");
+const t = require('@babel/types');
+const {extractNode} = require('./extractNode.js');
 
 /**
  * Map arguments to strings and logical ANDs
  * Move nodes to constants.
  */
 module.exports = function normalizeArguments(use) {
-  return use.parentPath.get("arguments").flatMap(argPath => {
+  return use.parentPath.get('arguments').flatMap(argPath => {
     const arg = argPath.node;
     if (t.isObjectExpression(arg)) {
       return arg.properties.map(prop => {
@@ -19,7 +19,7 @@ module.exports = function normalizeArguments(use) {
       });
     } else if (t.isStringLiteral(arg)) {
       return arg.value;
-    } else if (t.isLogicalExpression(arg, {operator: "&&"})) {
+    } else if (t.isLogicalExpression(arg, {operator: '&&'})) {
       t.assertStringLiteral(arg.right);
 
       return {

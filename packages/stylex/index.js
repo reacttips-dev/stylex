@@ -10,4 +10,4 @@
  * governing permissions and limitations under the License.
  */
 
-module.exports = require("./stylex.js");
+module.exports = require('./stylex.js');

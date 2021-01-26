@@ -5,13 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const cssProperties = require("known-css-properties").all;
+const cssProperties = require('known-css-properties').all;
 
-const normalizePseudoElements = require("./normalizePseudoElements");
-const getClassHash = require("./getClassHash");
-const isNestedObjects = require("./isNestedObjects");
-const flattenStyles = require("./flattenStyles");
-const camelToHyphen = require("./camelToHyphen");
+const normalizePseudoElements = require('./normalizePseudoElements');
+const getClassHash = require('./getClassHash');
+const isNestedObjects = require('./isNestedObjects');
+const flattenStyles = require('./flattenStyles');
+const camelToHyphen = require('./camelToHyphen');
 
 function getClass(...args) {
   return getClassHash(JSON.stringify(args));
@@ -24,12 +24,12 @@ function getClassValues(styles, {atRules = [], pseudoSelectors = []} = {}) {
     const value = styles[name];
 
     if (isNestedObjects(value)) {
-      if (name.startsWith("@")) {
+      if (name.startsWith('@')) {
         classes[name] = getClassValues(value, {
           atRules: [...atRules, name],
           pseudoSelectors
         });
-      } else if (name.startsWith(":")) {
+      } else if (name.startsWith(':')) {
         const normalizedName = normalizePseudoElements(name);
         classes[normalizedName] = getClassValues(value, {
           pseudoSelectors: [...pseudoSelectors, normalizedName],

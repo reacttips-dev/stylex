@@ -5,10 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const handleBindings = require("./bindings");
+const handleBindings = require('./bindings');
 
 // TODO: get it from package.json
-const NAME = "@ladifire-opensource/stylex";
+const NAME = '@ladifire-opensource/stylex';
 
 module.exports = function plugin({inject = true}) {
   let root;
@@ -29,7 +29,7 @@ module.exports = function plugin({inject = true}) {
         state.file.metadata.stylex = handleBindings(bindings, state.opts, root)
           // Remove duplicates
           .filter((e, i, a) => a.indexOf(e) === i)
-          .join("");
+          .join('');
       }
     }
   };

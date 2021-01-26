@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const expandProperty = require("./expandProperty");
-const resolvePathValue = require("./resolvePathValue");
-const getDeclaration = require("./getDeclaration");
-const isNestedObjects = require("./isNestedObjects");
-const flattenStyles = require("./flattenStyles");
+const expandProperty = require('./expandProperty');
+const resolvePathValue = require('./resolvePathValue');
+const getDeclaration = require('./getDeclaration');
+const isNestedObjects = require('./isNestedObjects');
+const flattenStyles = require('./flattenStyles');
 
 function expandProperties(obj) {
   const expanded = {};

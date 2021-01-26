@@ -1,7 +1,7 @@
 /* eslint-env jest */
-const babelCliTransform = require("./babel-cli-transforms");
+const babelCliTransform = require('./babel-cli-transforms');
 
-it("string", () => {
+it('string', () => {
   const input = `
     import stylex from '@ladifire-opensource/stylex';
     const styles = stylex.create({

@@ -5,17 +5,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const chalk = require("chalk");
-const babel = require("@babel/core");
-const loaderUtils = require("loader-utils");
-const path = require("path");
+const chalk = require('chalk');
+const babel = require('@babel/core');
+const loaderUtils = require('loader-utils');
+const path = require('path');
 
-const babelPlugin = require("@ladifire-opensource/babel-plugin-transform-stylex");
-const virtualModules = require("./virtualModules");
+const babelPlugin = require('@ladifire-opensource/babel-plugin-transform-stylex');
+const virtualModules = require('./virtualModules');
 
 async function stylexLoader(input, inputSourceMap) {
   const {
-    inlineLoader = "",
+    inlineLoader = '',
     inject = true,
     ...options
   } = loaderUtils.getOptions(this) || {};
@@ -28,6 +28,8 @@ async function stylexLoader(input, inputSourceMap) {
     sourceFileName: this.resourcePath,
     filename: path.basename(this.resourcePath),
     sourceMaps: true
+  }).catch((error) => {
+    this.callback(null, input, inputSourceMap);
   });
 
   try {
@@ -38,7 +40,7 @@ async function stylexLoader(input, inputSourceMap) {
     } else {
       const cssPath = loaderUtils.interpolateName(
         this,
-        "[path][name].[hash:base64:7].css",
+        '[path][name].[hash:base64:7].css',
         {
           content: metadata.stylex
         }

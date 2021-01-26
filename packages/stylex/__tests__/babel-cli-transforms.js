@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const babel = require("@babel/core");
-const transform = require("@ladifire-opensource/babel-plugin-transform-stylex");
+const babel = require('@babel/core');
+const transform = require('@ladifire-opensource/babel-plugin-transform-stylex');
 
 module.exports = function babelCliTransform(input, opts = {}) {
-  const transformed = babel.transformSync(input, {filename: "test.js", plugins: [[transform, opts]]});
+  const transformed = babel.transformSync(input, {filename: 'test.js', plugins: [[transform, opts]]});
 
   const {
     code,

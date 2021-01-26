@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const CometStyleXSheet = require("@ladifire-opensource/stylex-theme");
+const CometStyleXSheet = require('@ladifire-opensource/stylex-theme');
 
 CometStyleXSheet.rootStyleSheet.injectTheme();
 
@@ -21,10 +21,10 @@ function h(a) {
       continue;
     }
     d = c;
-    if (d != null && typeof d === "object") {
+    if (d != null && typeof d === 'object') {
       for (var e in d) {
         c = d[e];
-        if (typeof c === "string") {b[e] = c;} else if (typeof c === "object") {
+        if (typeof c === 'string') {b[e] = c;} else if (typeof c === 'object') {
           var f;
           b[e] = (f = b[e]) != null ? f : {};
           Object.assign(b[e], c);
@@ -38,14 +38,14 @@ function h(a) {
 function stylex(...args) {
   for (var a = arguments.length, b = new Array(a), c = 0; c < a; c++) {b[c] = arguments[c];}
   var d = h(b),
-    e = "";
+    e = '';
   for (var f in d) {
     if (d[f]) {
-      if (typeof d[f] === "string") {e += e ? " " + d[f] : d[f];} else if (typeof d[f] === "object") {
+      if (typeof d[f] === 'string') {e += e ? ' ' + d[f] : d[f];} else if (typeof d[f] === 'object') {
         var g = d[f];
         for (var i in g) {
           var j = g[i];
-          e += e ? " " + j : j;
+          e += e ? ' ' + j : j;
         }
       }
     }
@@ -53,7 +53,7 @@ function stylex(...args) {
   return e;
 }
 
-/** .........
+/** ...................
  * Create an stylex object, this is done by compiled and will caused error
  * if it exits in runtime code.
  *
@@ -68,7 +68,7 @@ function stylex(...args) {
  *
  * */
 stylex.create = function (...args) {
-  throw new Error("stylex.create should never be called. It should be compiled away.");
+  throw new Error('stylex.create should never be called. It should be compiled away.');
 };
 
 /**
@@ -131,7 +131,7 @@ stylex.compose = function () {
  * and an keyframes animation with name "sdert25s".
  * */
 stylex.keyframes = function (a) {
-  throw new Error("stylex.keyframes should never be called. It should be compiled away.");
+  throw new Error('stylex.keyframes should never be called. It should be compiled away.');
 };
 
 /**
@@ -146,9 +146,9 @@ stylex.inject = function (a, c, d = null) {
  * */
 stylex.absoluteFill = {
   bottom: 0,
-  boxSizing: "border-box",
+  boxSizing: 'border-box',
   right: 0,
-  position: "absolute",
+  position: 'absolute',
   left: 0,
   top: 0
 };
@@ -157,26 +157,26 @@ stylex.absoluteFill = {
  * For quick uses.
  * */
 stylex.absoluteCenter = {
-  boxSizing: "border-box",
-  left: "50%",
-  position: "absolute",
-  top: "50%",
-  transform: "translate(-50%, -50%)"
+  boxSizing: 'border-box',
+  left: '50%',
+  position: 'absolute',
+  top: '50%',
+  transform: 'translate(-50%, -50%)'
 };
 
 /**
  * For quick uses.
  * */
 stylex.blockBase = {
-  borderStyle: "solid",
+  borderStyle: 'solid',
   borderWidth: 0,
-  boxSizing: "border-box",
-  display: "block",
+  boxSizing: 'border-box',
+  display: 'block',
   flexGrow: 1,
   flexShrink: 1,
   margin: 0,
   padding: 0,
-  position: "relative",
+  position: 'relative',
   zIndex: 0
 };
 
@@ -184,22 +184,22 @@ stylex.blockBase = {
  * For quick uses.
  * */
 stylex.inlineBase = Object.assign({}, stylex.blockBase, {
-  display: "inline"
+  display: 'inline'
 });
 
 /**
  * For quick uses.
  * */
 stylex.buttonBase = {
-  appearance: "none",
-  backgroundColor: "transparent",
-  borderStyle: "solid",
+  appearance: 'none',
+  backgroundColor: 'transparent',
+  borderStyle: 'solid',
   borderWidth: 0,
-  boxSizing: "border-box",
+  boxSizing: 'border-box',
   margin: 0,
   padding: 0,
-  position: "relative",
-  textAlign: "inherit",
+  position: 'relative',
+  textAlign: 'inherit',
   zIndex: 0
 };
 
@@ -207,20 +207,20 @@ stylex.buttonBase = {
  * For quick uses.
  * */
 stylex.flexBase = {
-  alignItems: "stretch",
-  borderStyle: "solid",
+  alignItems: 'stretch',
+  borderStyle: 'solid',
   borderWidth: 0,
-  boxSizing: "border-box",
-  display: "flex",
-  flexDirection: "column",
+  boxSizing: 'border-box',
+  display: 'flex',
+  flexDirection: 'column',
   flexGrow: 1,
   flexShrink: 1,
-  justifyContent: "space-between",
+  justifyContent: 'space-between',
   margin: 0,
   minHeight: 0,
   minWidth: 0,
   padding: 0,
-  position: "relative",
+  position: 'relative',
   zIndex: 0
 };
 
@@ -228,20 +228,20 @@ stylex.flexBase = {
  * For quick uses.
  * */
 stylex.flexInlineBase = Object.assign({}, stylex.flexBase, {
-  display: "inline-flex"
+  display: 'inline-flex'
 });
 
 /**
  * For quick uses.
  * */
 stylex.linkBase = {
-  backgroundColor: "transparent",
-  backgroundImage: "none",
-  boxSizing: "border-box",
-  color: "inherit",
-  cursor: "pointer",
-  position: "relative",
-  textDecoration: "none",
+  backgroundColor: 'transparent',
+  backgroundImage: 'none',
+  boxSizing: 'border-box',
+  color: 'inherit',
+  cursor: 'pointer',
+  position: 'relative',
+  textDecoration: 'none',
   zIndex: 0
 };
 
@@ -249,8 +249,8 @@ stylex.linkBase = {
  * For quick uses.
  * */
 stylex.listBase = {
-  boxSizing: "border-box",
-  listStyle: "none",
+  boxSizing: 'border-box',
+  listStyle: 'none',
   marginBottom: 0,
   marginTop: 0,
   paddingLeft: 0
@@ -260,11 +260,11 @@ stylex.listBase = {
  * For quick uses.
  * */
 stylex.visuallyHidden = {
-  clip: "rect(0, 0, 0, 0)",
-  clipPath: "inset(50%)",
+  clip: 'rect(0, 0, 0, 0)',
+  clipPath: 'inset(50%)',
   height: 1,
-  overflow: "hidden",
-  position: "absolute",
+  overflow: 'hidden',
+  position: 'absolute',
   width: 1
 };
 

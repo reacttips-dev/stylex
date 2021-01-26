@@ -5,14 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const testASTShape = require("./testASTShape.js");
+const testASTShape = require('./testASTShape.js');
 
 module.exports = function isPropertyCall(node, name) {
   return testASTShape(node, {
     parent: {
-      type: "MemberExpression",
+      type: 'MemberExpression',
       parent: {
-        type: "CallExpression",
+        type: 'CallExpression',
         callee: {
           property: {
             name

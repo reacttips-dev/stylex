@@ -3,7 +3,7 @@
 
 function getAst(ast, path) {
   if (Array.isArray(ast)) {return ast[path];}
-  if (path === "parent") {return ast.parentPath;}
+  if (path === 'parent') {return ast.parentPath;}
   return ast.get(path);
 }
 
@@ -14,7 +14,7 @@ function getValue(ast, path) {
 
 function testASTShape(ast, shape) {
   for (const key in shape) {
-    if (typeof shape[key] === "object") {
+    if (typeof shape[key] === 'object') {
       if (!testASTShape(getAst(ast, key), shape[key])) {return false;}
     } else {
       if (shape[key] !== getValue(ast, key)) {return false;}

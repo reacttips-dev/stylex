@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const injectStyles = require("../utils/injectStyles");
-const replaceDeclaration = require("../utils/replaceDeclaration");
-const stylesUtils = require("../utils/styles");
-const minifyProperties = require("../utils/minifyProperties");
-const classNamesUtils = require("../utils/classNames");
+const injectStyles = require('../utils/injectStyles');
+const replaceDeclaration = require('../utils/replaceDeclaration');
+const stylesUtils = require('../utils/styles');
+const minifyProperties = require('../utils/minifyProperties');
+const classNamesUtils = require('../utils/classNames');
 
 // return a string[] of css
 function doDedupe(path, opts, root) {
@@ -31,7 +31,7 @@ function doDedupe(path, opts, root) {
 
 module.exports = function handleDedupeBindings(identifier, opts, path) {
   const callExpr = identifier.parentPath.parentPath;
-  const objsExpr = callExpr.get("arguments");
+  const objsExpr = callExpr.get('arguments');
 
   let _finalStyles = [];
 
@@ -43,8 +43,8 @@ module.exports = function handleDedupeBindings(identifier, opts, path) {
         _finalStyles = _finalStyles.concat(_styles);
       } else if (objExpr.isConditionalExpression()) {
         // TODO: test if ternary operator, need more review
-        const consequent = objExpr.get("consequent");
-        const alternate = objExpr.get("alternate");
+        const consequent = objExpr.get('consequent');
+        const alternate = objExpr.get('alternate');
 
         if (consequent && consequent.isObjectExpression()) {
           const _consequentStyles = doDedupe(consequent, opts, path);

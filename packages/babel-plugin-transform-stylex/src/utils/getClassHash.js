@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const LETTERS = "abcdefghijklmnopqrstuvwxyz";
-const NUMBERS = "0123456789";
+const LETTERS = 'abcdefghijklmnopqrstuvwxyz';
+const NUMBERS = '0123456789';
 const LETTERS_AND_NUMBERS = LETTERS + NUMBERS;
 
 function getOneLetterHash() {
@@ -19,7 +19,7 @@ function getOneLetterHash() {
       for (var i = 0; i < h; i++) {a = (a << 1) - a + f.charCodeAt(i);}
     }
   }
-  var j = "";
+  var j = '';
   for (var k = 0; k < 1; k++) {j = LETTERS.charAt(a & 25) + j, a >>= 1;}
   return j;
 }
@@ -34,7 +34,7 @@ function getSimpleHash() {
       for (var i = 0; i < h; i++) {a = (a << 5) - a + f.charCodeAt(i);}
     }
   }
-  var j = "";
+  var j = '';
   for (var k = 0; k < 7; k++) {j = LETTERS_AND_NUMBERS.charAt(a & 31) + j, a >>= 6;}
   return j;
 }

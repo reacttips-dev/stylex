@@ -5,18 +5,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const chalk = require("chalk");
-const t = require("@babel/types");
+const chalk = require('chalk');
+const t = require('@babel/types');
 
-const injectStyles = require("../utils/injectStyles");
-const stylesUtils = require("../utils/styles");
-const keyframesUtils = require("../utils/keyframes");
+const injectStyles = require('../utils/injectStyles');
+const stylesUtils = require('../utils/styles');
+const keyframesUtils = require('../utils/keyframes');
 
 module.exports = function handleKeyframesBindings(identifier, opts, path) {
   const callExpr = identifier.parentPath.parentPath;
-  const objExpr = callExpr.get("arguments.0");
+  const objExpr = callExpr.get('arguments.0');
   let rules;
-  let declaration = "";
+  let declaration = '';
   try {
     rules = stylesUtils.getStyles(objExpr);
     const {name, declaration: _declaration} = keyframesUtils.getKeyframes(rules);

@@ -5,18 +5,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const chalk = require("chalk");
+const chalk = require('chalk');
 
-const stylesUtils = require("../utils").styles;
-const classNames = require("../utils").classNames;
-const filterObject = require("../utils").filterObject;
-const replaceUseCalls = require("../utils").replaceUseCalls;
-const replaceDeclaration = require("../utils").replaceDeclaration;
-const injectStyles = require("../utils").injectStyles;
+const stylesUtils = require('../utils').styles;
+const classNames = require('../utils').classNames;
+const filterObject = require('../utils').filterObject;
+const replaceUseCalls = require('../utils').replaceUseCalls;
+const replaceDeclaration = require('../utils').replaceDeclaration;
+const injectStyles = require('../utils').injectStyles;
 
 module.exports = function handleCreateBindings(identifier, opts, path) {
   const callExpr = identifier.parentPath.parentPath;
-  const objExpr = callExpr.get("arguments.0");
+  const objExpr = callExpr.get('arguments.0');
 
   let styles;
   let classes;
@@ -33,7 +33,7 @@ module.exports = function handleCreateBindings(identifier, opts, path) {
   }
 
   if (!classes) {
-    return "";
+    return '';
   }
 
   replaceDeclaration(callExpr, classes);

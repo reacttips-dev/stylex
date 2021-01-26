@@ -6,5 +6,5 @@
  */
 
 module.exports = function isCustomProperty(name) {
-  return name.startsWith("--");
+  return name.startsWith('--');
 };

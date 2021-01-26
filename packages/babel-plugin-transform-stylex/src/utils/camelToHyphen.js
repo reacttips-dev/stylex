@@ -1,4 +1,4 @@
-const isCustomProperty = require("./isCustomProperty");
+const isCustomProperty = require('./isCustomProperty');
 
 module.exports = function camelToHyphen(string) {
   if (isCustomProperty(string)) {return string;}

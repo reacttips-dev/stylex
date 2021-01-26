@@ -1,9 +1,9 @@
 module.exports = {
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom',
   testPathIgnorePatterns: [
-    "./packages/stylex/__tests__/babel-cli-transforms.js"
+    './packages/stylex/__tests__/babel-cli-transforms.js'
   ],
   roots: [
-    "packages/"
+    'packages/'
   ]
 };
