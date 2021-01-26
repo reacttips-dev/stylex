@@ -132,7 +132,7 @@ yarn add -D next-transpile-modules
 Then in ```next.config.js```, add these lines:
 
 ```js
-const withTM = require('next-transpile-modules')(['stylex'], { unstable_webpack5: true });
+const withTM = require('next-transpile-modules')(['@ladifire-opensource/stylex'], { unstable_webpack5: true });
 const withStylex = require('@ladifire-opensource/stylex-nextjs-plugin');
 
 module.exports = withStylex({
