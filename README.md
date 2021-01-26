@@ -164,6 +164,36 @@ module.exports = {
 };
 ```
 
+Then you can write like this in your ```.vue```:
+
+```js
+<script>
+
+import stylex from '@ladifire-opensource/stylex'
+
+const styles = stylex.create({
+    button: {
+        borderRadius: 8,
+        padding: 16,
+        backgroundColor: "#1DA1F2",
+        color: "#fff"
+    },
+});
+
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  },
+  computed: {
+    buttonClasses() {
+      return stylex(styles.button);
+    }
+  }
+}
+</script>
+```
+
 ### Setup with Angular
 *Under construction!!!*
 
