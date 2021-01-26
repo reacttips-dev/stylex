@@ -13,7 +13,7 @@ See Facebook React conf video for about Stylex: [Click here](https://youtu.be/9J
 ## Join Stylex Community (Facebook group)
 Visit [this link](https://www.facebook.com/groups/713597106002279) to join Stylex community.
 
-## Installation (Not ready yet)
+## Installation
 
 Yarn users:
 ```bash
