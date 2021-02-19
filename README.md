@@ -42,7 +42,7 @@ If you're using `Nextjs`:
 yarn add @ladifire-opensource/stylex-nextjs-plugin
 ```
 
-### [Setup with Webpack](#set-up-with-webpack)
+### [Setup with Webpack](#setup-with-webpack)
 
 First, we need import `stylex-webpack-plugin`:
 
@@ -79,7 +79,7 @@ rules: [
       },
 ```
 
-### [Setup with Babel](#set-up-with-babel)
+### [Setup with Babel](#setup-with-babel)
 
 This is example of Babel config with stylex:
 
@@ -193,7 +193,7 @@ export default {
 </script>
 ```
 
-### [Setup with Angular](#set-up-with-angular)
+### [Setup with Angular](#setup-with-angular)
 
 _Under construction!!!_
 
@@ -203,7 +203,7 @@ _Under construction!!!_
 - Nextjs examples: [View code](https://github.com/ladifire-opensource/stylex.vercel.app), [other nextjs example](https://github.com/ladifire-opensource/stylex/tree/main/packages/stylex-vuejs-examples)
 - Vue example: [View code](https://github.com/ladifire-opensource/stylex/tree/main/packages/stylex-vuejs-examples)
 
-## [How to use stylex?](#how_to_use_stylex)
+## [How to use stylex?](#how-to-use-stylex)
 
 There're some methods you can you with stylex:
 
