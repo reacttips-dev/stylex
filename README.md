@@ -4,51 +4,53 @@
   <small>Write CSS in JS with Atomic first, like Facebook do!</small>
 </h1>
 
-## About Stylex
+## [About Stylex](#about_stylex)
 
 **NOTE: The idea of stylex originated from Facebook.**
 
-The underlying idea was to not discard idiomatic CSS but to make it 
-easier to maintain and keep the good parts of CSS that developers are 
-used to enjoying. The number one priority was readability and 
+The underlying idea was to not discard idiomatic CSS but to make it
+easier to maintain and keep the good parts of CSS that developers are
+used to enjoying. The number one priority was readability and
 maintainability, which are issues compounded at scale.
 
 See Facebook React conf video for more about Stylex: [Click here](https://youtu.be/9JZHodNR184?t=229)
 
-## Installation
+## [Installation](#installation)
 
 Yarn users:
+
 ```bash
 yarn add @ladifire-opensource/stylex
 ```
 
 Npm users:
+
 ```bash
 npm install @ladifire-opensource/stylex
 ```
 
-The second step is depending on what bundler you use, for webpack you 
+The second step is depending on what bundler you use, for webpack you
 need to install a webpack plugin
 
 ```bash
 yarn add @ladifire-opensource/stylex-webpack-plugin
 ```
 
-If you're using ```Nextjs```:
+If you're using `Nextjs`:
 
 ```bash
 yarn add @ladifire-opensource/stylex-nextjs-plugin
 ```
 
-### Setup with Webpack
+### [Setup with Webpack](#set_up_with_webpack)
 
-First, we need import ```stylex-webpack-plugin```:
+First, we need import `stylex-webpack-plugin`:
 
 ```js
 const StylexPlugin = require("@ladifire-opensource/stylex-webpack-plugin");
 ```
 
-Then, in ```plugins``` section, add this:
+Then, in `plugins` section, add this:
 
 ```js
  plugins: [
@@ -57,7 +59,7 @@ Then, in ```plugins``` section, add this:
     new StylexPlugin(),
 ```
 
-Last thing, add this in ```rules``` section:
+Last thing, add this in `rules` section:
 
 ```js
 rules: [
@@ -77,7 +79,7 @@ rules: [
       },
 ```
 
-### Setup with Babel
+### [Setup with Babel](#set_up_with_babel)
 
 This is example of Babel config with stylex:
 
@@ -91,37 +93,33 @@ This is example of Babel config with stylex:
 
 /*eslint-env node*/
 module.exports = {
-  presets: [
-    '@babel/react',
-    '@babel/env',
-    '@babel/preset-typescript',
-  ],
+  presets: ["@babel/react", "@babel/env", "@babel/preset-typescript"],
   plugins: [
-    '@babel/plugin-syntax-dynamic-import',
-    '@babel/plugin-proposal-object-rest-spread',
-    '@babel/plugin-transform-runtime',
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-runtime",
     ["@babel/plugin-transform-modules-commonjs"],
     [
       "@babel/plugin-transform-spread",
       {
-        "loose": true
-      }
+        loose: true,
+      },
     ],
-    ['@babel/plugin-proposal-decorators', {legacy: true}],
-    ['@babel/plugin-proposal-class-properties', {loose: true}],
+    ["@babel/plugin-proposal-decorators", { legacy: true }],
+    ["@babel/plugin-proposal-class-properties", { loose: true }],
     [
       "@ladifire-opensource/babel-plugin-transform-stylex",
       {
-        "inject": true, // will inject compiled css to stylesheet in head
-      }
-    ]
+        inject: true, // will inject compiled css to stylesheet in head
+      },
+    ],
   ],
 };
 ```
 
-### Setup with Nextjs
+### [Setup with Nextjs](#setup_with_nextjs)
 
-First thing, you need add ```next-transpile-modules``` to your project.
+First thing, you need add `next-transpile-modules` to your project.
 
 Just run:
 
@@ -129,42 +127,43 @@ Just run:
 yarn add -D next-transpile-modules
 ```
 
-Then in ```next.config.js```, add these lines:
+Then in `next.config.js`, add these lines:
 
 ```js
-const withTM = require('next-transpile-modules')(['@ladifire-opensource/stylex'], { unstable_webpack5: true });
-const withStylex = require('@ladifire-opensource/stylex-nextjs-plugin');
+const withTM = require("next-transpile-modules")(
+  ["@ladifire-opensource/stylex"],
+  { unstable_webpack5: true }
+);
+const withStylex = require("@ladifire-opensource/stylex-nextjs-plugin");
 
 module.exports = withStylex({
   inject: true, // for nextjs, we must inject style to head
 })(withTM());
 ```
 
-### Setup with Vue
+### [Setup with Vue](#setup_with_vue)
 
-Add these lines in ```vue.config.js```:
+Add these lines in `vue.config.js`:
 
 ```js
-const StylexPlugin = require('@ladifire-opensource/stylex-webpack-plugin');
+const StylexPlugin = require("@ladifire-opensource/stylex-webpack-plugin");
 
 module.exports = {
-    configureWebpack: {
-        module: {
-            rules: [
-                {
-                    test: /\.(tsx|ts|js|mjs|jsx)$/,
-                    use: StylexPlugin.loader,
-                },
-            ],
+  configureWebpack: {
+    module: {
+      rules: [
+        {
+          test: /\.(tsx|ts|js|mjs|jsx)$/,
+          use: StylexPlugin.loader,
         },
-        plugins: [
-          new StylexPlugin(),
-        ],
+      ],
     },
+    plugins: [new StylexPlugin()],
+  },
 };
 ```
 
-Then you can write like this in your ```.vue```:
+Then you can write like this in your `.vue`:
 
 ```js
 <script>
@@ -194,20 +193,21 @@ export default {
 </script>
 ```
 
-### Setup with Angular
-*Under construction!!!*
+### [Setup with Angular](#set_up_with_angular)
 
-## Examples
+_Under construction!!!_
 
-* React minimal example: [View code](https://github.com/ladifire-opensource/react-stylex-minimal)
-* Nextjs examples: [View code](https://github.com/ladifire-opensource/stylex.vercel.app), [other nextjs example](https://github.com/ladifire-opensource/stylex/tree/main/packages/stylex-vuejs-examples)
-* Vue example: [View code](https://github.com/ladifire-opensource/stylex/tree/main/packages/stylex-vuejs-examples)
+## [Examples](#examples)
 
-## How to use stylex?
+- React minimal example: [View code](https://github.com/ladifire-opensource/react-stylex-minimal)
+- Nextjs examples: [View code](https://github.com/ladifire-opensource/stylex.vercel.app), [other nextjs example](https://github.com/ladifire-opensource/stylex/tree/main/packages/stylex-vuejs-examples)
+- Vue example: [View code](https://github.com/ladifire-opensource/stylex/tree/main/packages/stylex-vuejs-examples)
+
+## [How to use stylex?](#how_to_use_stylex)
 
 There're some methods you can you with stylex:
 
-### Create new stylex object ```(stylex.create)```
+### Create new stylex object `(stylex.create)`
 
 This method will create a new stylex object:
 
@@ -217,7 +217,7 @@ import stylex from "@ladifire-opensource/stylex";
 const styles = stylex.create({
   root: {
     fontWeight: 700,
-    color: "blue"
+    color: "blue",
   },
   button: {
     borderRadius: 8,
@@ -228,105 +228,103 @@ const styles = stylex.create({
 Then we can use as:
 
 ```js
-<div className={stylex(styles.root)}>
-  Component
-</div>
+<div className={stylex(styles.root)}>Component</div>
 ```
 
-The arguments of ```stylex(...args)``` can be separated by comma:
+The arguments of `stylex(...args)` can be separated by comma:
 
 ```js
-<div className={stylex(styles.root, styles.button)}>
-  Component
-</div>
+<div className={stylex(styles.root, styles.button)}>Component</div>
 ```
 
 or as an array:
 
 ```js
-<div className={stylex([styles.root, styles.button])}>
-  Component
-</div>
+<div className={stylex([styles.root, styles.button])}>Component</div>
 ```
 
-### Dedupe stylex objects ```(stylex.dedupe)```
+### Dedupe stylex objects `(stylex.dedupe)`
 
 This method will dedupe (override) duplicate style properties:
 
 ```js
 <div
-    className={stylex.dedupe(
-      {
-        color: "var(--primary-text)",
-      },
-      isError ? {
-        color: "var(--negative)"
-      } : null,
-    )}
-  >
-    Dedupe
+  className={stylex.dedupe(
+    {
+      color: "var(--primary-text)",
+    },
+    isError
+      ? {
+          color: "var(--negative)",
+        }
+      : null
+  )}
+>
+  Dedupe
 </div>
 ```
 
-### Create a keyframes animation name ```(stylex.keyframes)```
+### Create a keyframes animation name `(stylex.keyframes)`
 
 ```js
 let j = stylex.create({
   dark: {
-    backgroundColor: "var(--placeholder-icon)"
+    backgroundColor: "var(--placeholder-icon)",
   },
   paused: {
-    animationPlayState: "paused"
+    animationPlayState: "paused",
   },
   root: {
     animationDirection: "alternate",
     animationDuration: "1s",
     animationIterationCount: "infinite",
     animationName: stylex.keyframes({
-      '0%': {
+      "0%": {
         opacity: 0.25,
       },
-      '100%': {
+      "100%": {
         opacity: 1,
       },
     }),
     animationTimingFunction: "steps(10,end)",
     backgroundColor: "var(--wash)",
-    opacity: 0.25
-  }
+    opacity: 0.25,
+  },
 });
 ```
 
-### Compose (merge) stylex objects ```(stylex.compose)```
+### Compose (merge) stylex objects `(stylex.compose)`
 
 ```js
 const s = stylex.compose(
   {
     color: "red",
-    backgroundColor: "blue"
+    backgroundColor: "blue",
   },
   {
-    backgroundColor: "white"
-  },
+    backgroundColor: "white",
+  }
 );
 ```
 
 The above code will transformed to:
+
 ```js
 const s = {
-    color: "a512sdfe5", // red
-    backgroundColor: "wer115asse" // white
-}
+  color: "a512sdfe5", // red
+  backgroundColor: "wer115asse", // white
+};
 ```
 
 #### Quick uses
-*Describe some common static methods for quick uses, eg: stylex.absolute, ...*
 
-### Plugin options
+_Describe some common static methods for quick uses, eg: stylex.absolute, ..._
+
+### [Plugin options](#plugin_option)
 
 #### Inject css to compiled js
 
-By default, stylex will inject css to stylesheet object in ```<head>``` of html document.
+By default, stylex will inject css to stylesheet object in `<head>` of html document.
 
 There is no extra reference links of stylesheets to inject.
 
@@ -355,15 +353,15 @@ rules: [
 In the compiled js, there're something like this will be injected:
 
 ```js
-inject('.avcdd15645{color: "red"}')
+inject('.avcdd15645{color: "red"}');
 ```
 
-Then the stylex runtime code will excute the ```inject``` function and add ```'.avcdd15645{color: "red"}'```
-to the stylesheet in the ```<head>``` section.
+Then the stylex runtime code will excute the `inject` function and add `'.avcdd15645{color: "red"}'`
+to the stylesheet in the `<head>` section.
 
 #### Separate css into .css files
 
-In case you want to use stylex with ```mini-css-extract-plugin``` to seprate css
+In case you want to use stylex with `mini-css-extract-plugin` to seprate css
 into reference links, you can setup in your webpack config as bellow:
 
 ```js
@@ -390,7 +388,7 @@ rules: [
 ...
 
 plugins: [
-   new StylexPlugin(), 
+   new StylexPlugin(),
    new ExtractTextPlugin({
       filename: '[name].[contentHash:11].css',
       chunkFilename: '[name].[contentHash:11].css',
@@ -405,39 +403,35 @@ This is example of stylex's babel config:
 
 ```js
 module.exports = {
-  presets: [
-    '@babel/react',
-    '@babel/env',
-    '@babel/preset-typescript',
-  ],
+  presets: ["@babel/react", "@babel/env", "@babel/preset-typescript"],
   plugins: [
-    '@babel/plugin-syntax-dynamic-import',
-    '@babel/plugin-proposal-object-rest-spread',
-    '@babel/plugin-transform-runtime',
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-runtime",
     ["@babel/plugin-transform-modules-commonjs"],
     [
       "@babel/plugin-transform-spread",
       {
-        "loose": true
-      }
+        loose: true,
+      },
     ],
-    ['@babel/plugin-proposal-decorators', {legacy: true}],
-    ['@babel/plugin-proposal-class-properties', {loose: true}],
+    ["@babel/plugin-proposal-decorators", { legacy: true }],
+    ["@babel/plugin-proposal-class-properties", { loose: true }],
     [
       "@ladifire-opensource/babel-plugin-transform-stylex",
       {
-        "inject": true, // will inject compiled css to stylesheet in head
-      }
-    ]
+        inject: true, // will inject compiled css to stylesheet in head
+      },
+    ],
   ],
 };
 ```
 
 ### SSR support
 
-See ```stylex-nextjs-examples``` for setup stylex with nextjs.
+See `stylex-nextjs-examples` for setup stylex with nextjs.
 
-### Others 
+### Others
 
 #### Pass stylex through props (Reactjs)
 
@@ -449,30 +443,29 @@ import * as React from "react";
 import stylex from "@ladifire-opensource/stylex";
 import ChildComponent from "./path/to/child";
 
-type Style = 
-    | "root";
+type Style = "root";
 
 const styles = stylex.create({
-    root: {
-        color: "red"
-    },
+  root: {
+    color: "red",
+  },
 });
 
 const Parent = () => {
-    return (
-        <ChildComponent
-            xstyle={styles.root}
-            //...otherProps
-        />
-    );
-}
+  return (
+    <ChildComponent
+      xstyle={styles.root}
+      //...otherProps
+    />
+  );
+};
 ```
 
-The ```xstyle``` prop is a good method because it helps to combine style props under one namespace
+The `xstyle` prop is a good method because it helps to combine style props under one namespace
 and doesn't populate the global orios environment and it looks similar to the goal of
 sx prop.
 
-Then in your child component you can use ```xstyle``` props as:
+Then in your child component you can use `xstyle` props as:
 
 ```js
 import * as React from "react";
@@ -481,20 +474,14 @@ import stylex from "@ladifire-opensource/stylex";
 
 const styles = stylex.create({
   root: {
-    backgroundColor: "red"
+    backgroundColor: "red",
   },
 });
 
 const ChildComponent = (props) => {
-  const {
-    xstyle,
-  } = props;
-  
-  return (
-    <div className={stylex(styles.root, xstyle)}>
-      Child
-    </div>
-  );
+  const { xstyle } = props;
+
+  return <div className={stylex(styles.root, xstyle)}>Child</div>;
 };
 ```
 
@@ -505,9 +492,9 @@ variables, like this:
 
 ```js
 const defaultThemeVariables = {
-    "primary-icon": "rgb(15, 20, 25)",
-    "primary-text": "rgb(15, 20, 25)",
-    "primary-text-on-media": "#FFFFFF",
+  "primary-icon": "rgb(15, 20, 25)",
+  "primary-text": "rgb(15, 20, 25)",
+  "primary-text-on-media": "#FFFFFF",
 };
 ```
 
@@ -539,8 +526,8 @@ This is example for React users:
 ```js
 import CometStyleXSheet from "@ladifire-opensource/stylex-theme";
 
-import {themeDataBase} from './themeDataBase';
-import {themeDataCustom} from './themeDataCustom';
+import { themeDataBase } from "./themeDataBase";
+import { themeDataCustom } from "./themeDataCustom";
 
 export const ThemingExamples = () => {
   React.useEffect(() => {
@@ -548,21 +535,24 @@ export const ThemingExamples = () => {
     CometStyleXSheet.rootStyleSheet.setCustomTheme(themeDataCustom);
   }, []);
 
-  const [isDark, setIsDark] = React.useState<boolean>(() => false);
-  const toggleIsDark = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    const target = event.target;
-    setIsDark(target.checked);
-    CometStyleXSheet.rootStyleSheet.toggleCustomTheme(!isDark);
-  }, [isDark, setIsDark]);
-    
+  const [isDark, setIsDark] = React.useState < boolean > (() => false);
+  const toggleIsDark = React.useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const target = event.target;
+      setIsDark(target.checked);
+      CometStyleXSheet.rootStyleSheet.toggleCustomTheme(!isDark);
+    },
+    [isDark, setIsDark]
+  );
+
   // ...
-}
+};
 ```
 
 ## Thanks to
 
-* We'd like to send a big thanks to: johanholmerin for style9 (an other stylex cover)
-* We'd like to thanks Facebook very much (most of javascript code in stylex is re-write from built code of Facebook)
+- We'd like to send a big thanks to: johanholmerin for style9 (an other stylex cover)
+- We'd like to thanks Facebook very much (most of javascript code in stylex is re-write from built code of Facebook)
 
 ## Contributing
 
@@ -572,12 +562,13 @@ Contributions are always welcome, no matter how large or small!
 
 Fork the `stylex` repository to your GitHub Account.
 
-Then, run: ```yarn install```
+Then, run: `yarn install`
 
-To see reactjs demo, cd to ```stylex-reactjs-examples``` and following steps in
+To see reactjs demo, cd to `stylex-reactjs-examples` and following steps in
 README.md to run Reactjs demo
 
 ## Join Stylex Community (Facebook group)
+
 Visit [this link](https://www.facebook.com/groups/713597106002279) to join Stylex community.
 
 ### License
