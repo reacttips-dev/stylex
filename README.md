@@ -193,6 +193,30 @@ export default {
 </script>
 ```
 
+### [Setup with Create React App](#setup-with-create-react-app)
+
+Follow `craco.js` installation [guide]('https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#installation').
+
+Finally in `cracro.config.js` add:
+
+```js
+module.exports = {
+  // ...
+  babel: {
+    /// ...
+    plugins: [
+      /// ...
+      [
+        "@ladifire-opensource/babel-plugin-transform-stylex",
+        {
+          inject: true,
+        },
+      ],
+    ],
+  },
+};
+```
+
 ### [Setup with Angular](#setup-with-angular)
 
 _Under construction!!!_
