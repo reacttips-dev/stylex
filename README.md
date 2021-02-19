@@ -4,7 +4,7 @@
   <small>Write CSS in JS with Atomic first, like Facebook do!</small>
 </h1>
 
-## [About Stylex](#about_stylex)
+## [About Stylex](#about-stylex)
 
 **NOTE: The idea of stylex originated from Facebook.**
 
@@ -42,7 +42,7 @@ If you're using `Nextjs`:
 yarn add @ladifire-opensource/stylex-nextjs-plugin
 ```
 
-### [Setup with Webpack](#set_up_with_webpack)
+### [Setup with Webpack](#set-up-with-webpack)
 
 First, we need import `stylex-webpack-plugin`:
 
@@ -79,7 +79,7 @@ rules: [
       },
 ```
 
-### [Setup with Babel](#set_up_with_babel)
+### [Setup with Babel](#set-up-with-babel)
 
 This is example of Babel config with stylex:
 
@@ -117,7 +117,7 @@ module.exports = {
 };
 ```
 
-### [Setup with Nextjs](#setup_with_nextjs)
+### [Setup with Nextjs](#setup-with-nextjs)
 
 First thing, you need add `next-transpile-modules` to your project.
 
@@ -141,7 +141,7 @@ module.exports = withStylex({
 })(withTM());
 ```
 
-### [Setup with Vue](#setup_with_vue)
+### [Setup with Vue](#setup-with-vue)
 
 Add these lines in `vue.config.js`:
 
@@ -193,7 +193,7 @@ export default {
 </script>
 ```
 
-### [Setup with Angular](#set_up_with_angular)
+### [Setup with Angular](#set-up-with-angular)
 
 _Under construction!!!_
 
@@ -320,7 +320,7 @@ const s = {
 
 _Describe some common static methods for quick uses, eg: stylex.absolute, ..._
 
-### [Plugin options](#plugin_option)
+### [Plugin options](#plugin-options)
 
 #### Inject css to compiled js
 
