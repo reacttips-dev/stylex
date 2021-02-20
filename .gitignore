@@ -9,7 +9,6 @@ __benchmarks__
 yarn.lock
 build
 dist
-public
 packages/*/dist
 packages/*/.next
 .module-cache
