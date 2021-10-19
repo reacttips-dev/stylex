@@ -197,7 +197,7 @@ export default {
 
 Follow `craco.js` installation [guide]('https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#installation').
 
-Finally in `cracro.config.js` add:
+Finally in `craco.config.js` add:
 
 ```js
 module.exports = {
